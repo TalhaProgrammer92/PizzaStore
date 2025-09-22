@@ -8,6 +8,6 @@ namespace PizzaStore.DTOs
         public string Name { get; set; }
         public string? Description { get; set; }
         public decimal Price { get; set; }
-        public PizzaSize size { get; set; }
+        public PizzaSize Size { get; set; }
     }
 }

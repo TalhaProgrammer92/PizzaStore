@@ -17,6 +17,6 @@ namespace PizzaStore.Entities
         public decimal Price { get; set; }
         
         [Required]
-        public PizzaSize size { get; set; }
+        public PizzaSize Size { get; set; }
     }
 }
