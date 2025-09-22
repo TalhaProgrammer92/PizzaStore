@@ -18,5 +18,10 @@ namespace PizzaStore.Entities
         
         [Required]
         public PizzaSize Size { get; set; }
+
+        [Required]
+        public DateTime CreatedAt { get; set; } = DateTime.Now;
+        
+        public DateTime? UpdatedAt { get; set; }
     }
 }
