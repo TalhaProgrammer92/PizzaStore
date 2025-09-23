@@ -7,6 +7,7 @@ using PizzaStore.Enums;
 using PizzaStore.Repositories.IRepositories;
 using PizzaStore.Services.IServices;
 using PizzaStore.Validators;
+using System.Collections.Generic;
 
 namespace PizzaStore.Services
 {
@@ -37,35 +38,44 @@ namespace PizzaStore.Services
 
         public async Task AddPizzaAsync(PizzaDto pizzaDto)
         {
-            var result = _validator.Validate(pizzaDto);
-
-            if (result.IsValid)
-            {
-                var pizza = _mapper.Map<Pizza>(pizzaDto);
-                await _unitOfWork.PizzaRepository.AddAsync(pizza);
-                await _unitOfWork.SaveChangesAsync();
-            }
+            await ValidateAsync(pizzaDto);
+            
+            var pizza = _mapper.Map<Pizza>(pizzaDto);
+            await _unitOfWork.PizzaRepository.AddAsync(pizza);
+            await _unitOfWork.SaveChangesAsync();
         }
 
         public async Task UpdatePizzaAsync(PizzaDto pizzaDto)
         {
-            var result = _validator.Validate(pizzaDto);
+            await ValidateAsync(pizzaDto);
 
-            if (result.IsValid)
+            var pizza = await _unitOfWork.PizzaRepository.GetByIdAsync(pizzaDto.Id);
+            if (pizza is null)
+                throw new KeyNotFoundException("Pizza not found");
+
+            _unitOfWork.PizzaRepository.Update(pizza);
+            await _unitOfWork.SaveChangesAsync();
+        }
+
+        public async Task DeletePizzaAsync(Guid id)
+        {
+            var pizza = await _unitOfWork.PizzaRepository.GetByIdAsync(id);
+
+            if (pizza is null)
+                throw new KeyNotFoundException("Pizza not found");
+            else
             {
-                var pizza = await _unitOfWork.PizzaRepository.GetByIdAsync(pizzaDto.Id);
-                if (pizza is null)
-                    throw new KeyNotFoundException("Pizza not found");
-
-                //_mapper.Map<Pizza>(PizzaDto);
-                _unitOfWork.PizzaRepository.Update(pizza);
+                _unitOfWork.PizzaRepository.Remove(pizza);
                 await _unitOfWork.SaveChangesAsync();
             }
         }
 
-        public async Task DeletePizzaAsync(Guid id);
-        public async Task<PizzaDto?> GetPizzaBySizeAsync(PizzaSize size);
-        public async Task<PizzaDto?> GetPizzaByPriceAsync(decimal price);
-        public async Task<PizzaDto?> GetPizzaByPriceRangeAsync(decimal priceStart, decimal priceEnd);
+        private async Task ValidateAsync(PizzaDto dto)
+        {
+            var result = await _validator.ValidateAsync(dto);
+            
+            if (!result.IsValid)
+                throw new ValidationException(string.Join("; ", result.Errors.Select(e => e.ErrorMessage)));
+        }
     }
 }
