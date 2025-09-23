@@ -1,6 +1,6 @@
 ﻿using System.Linq.Expressions;
 
-namespace PizzaStore.IRepositories
+namespace PizzaStore.Repositories.IRepositories
 {
     public interface IGenericRepository<TEntity> where TEntity : class
     {

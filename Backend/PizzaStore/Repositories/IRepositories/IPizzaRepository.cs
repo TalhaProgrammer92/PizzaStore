@@ -1,6 +1,6 @@
 ﻿using PizzaStore.Entities;
 
-namespace PizzaStore.IRepositories
+namespace PizzaStore.Repositories.IRepositories
 {
     public interface IPizzaRepository : IGenericRepository<Pizza>
     {
