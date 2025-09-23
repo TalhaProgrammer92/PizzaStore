@@ -7,8 +7,8 @@ namespace PizzaStore.Repositories
 {
     public class GenericRepository<TEntity> : IGenericRepository<TEntity> where TEntity : class
     {
-        private readonly ApplicationDbContext _context;
-        private readonly DbSet<TEntity> _dbSet;
+        protected readonly ApplicationDbContext _context;
+        protected readonly DbSet<TEntity> _dbSet;
 
         public GenericRepository(ApplicationDbContext context)
         {
