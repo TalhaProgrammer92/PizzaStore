@@ -3,6 +3,8 @@ using FluentValidation.AspNetCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using PizzaStore.Mapping;
+using PizzaStore.Services.IServices;
+using PizzaStore.Services;
 using System.Reflection;
 
 namespace PizzaStore
@@ -19,6 +21,13 @@ namespace PizzaStore
 
             services.AddFluentValidationAutoValidation();   // Enables automatic validation
             services.AddValidatorsFromAssembly(Assembly.GetExecutingAssembly());
+
+            return services;
+        }
+
+        public static IServiceCollection AddServiceDI(this IServiceCollection services)
+        {
+            services.AddScoped<IPizzaService, PizzaService>();
 
             return services;
         }
