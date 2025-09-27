@@ -1,4 +1,6 @@
 
+using Hangfire;
+
 namespace PizzaStore
 {
     public class Program
@@ -14,6 +16,11 @@ namespace PizzaStore
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
 
+            builder.Services.AddCoreDI(builder.Configuration);
+            builder.Services.AddDataDI(builder.Configuration);
+            builder.Services.AddServiceDI();
+            builder.Services.AddAppDI(builder.Configuration);
+
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.
@@ -27,7 +34,10 @@ namespace PizzaStore
 
             app.UseAuthorization();
 
-
+            //app.UseHangfireDashboard("/hangfire", new DashboardOptions
+            //{
+            //    Authorization = new[] { new AllowAllUsersFilter() }
+            //});
             app.MapControllers();
 
             app.Run();
