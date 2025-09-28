@@ -20,12 +20,6 @@ namespace PizzaStore.Services
             _validator = validator;
         }
 
-        public async Task<IEnumerator<UserDto>> GetAllUsesAsync()
-        {
-            var users = await _unitOfWork.UserRepository.GetAllAsync();
-            return _mapper.Map<IEnumerator<UserDto>>(users);
-        }
-
         public async Task<UserDto?> GetUserByIdAsync(Guid id)
         {
             var user = await _unitOfWork.UserRepository.GetByIdAsync(id);
@@ -74,6 +68,12 @@ namespace PizzaStore.Services
 
             if (!result.IsValid)
                 throw new ValidationException(string.Join("; ", result.Errors.Select(e => e.ErrorMessage)));
+        }
+
+        public async Task<IEnumerable<UserDto>> GetAllUsesAsync()
+        {
+            var users = await _unitOfWork.UserRepository.GetAllAsync();
+            return _mapper.Map<IEnumerable<UserDto>>(users);
         }
     }
 }

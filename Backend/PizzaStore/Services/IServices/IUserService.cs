@@ -4,7 +4,7 @@ namespace PizzaStore.Services.IServices
 {
     public interface IUserService
     {
-        Task<IEnumerator<UserDto>> GetAllUsesAsync();
+        Task<IEnumerable<UserDto>> GetAllUsesAsync();
         Task<UserDto?> GetUserByIdAsync(Guid id);
         Task CreateUserAsync(UserDto userDto);
         Task UpdateUserAsync(UserDto userDto);
