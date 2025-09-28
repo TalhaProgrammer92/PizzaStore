@@ -8,6 +8,8 @@ namespace PizzaStore.Entities
         [Key]
         public Guid Id { get; set; }
 
+        public byte[]? Image { get; set; }
+
         [Required]
         public string Name { get; set; }
 
@@ -15,7 +17,10 @@ namespace PizzaStore.Entities
 
         [Required]
         public decimal Price { get; set; }
-        
+
+        public decimal? Discount { get; set; }
+        public decimal? DiscountPrice { get; set; }
+
         [Required]
         public PizzaSize Size { get; set; }
 

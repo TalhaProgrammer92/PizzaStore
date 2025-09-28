@@ -17,7 +17,7 @@ namespace PizzaStore.Validators
             
             RuleFor(p => p.Size)
                 .NotEmpty().WithMessage("Pizza size is required")
-                .Must(size => Enum.IsDefined(typeof(PizzaSize), size)).WithMessage("Invalid pizza size selected! Options: Small, Medium, Large, ExtraLarge");
+                .Must(size => Enum.IsDefined(typeof(PizzaSize), size)).WithMessage("Invalid pizza size selected! Options: Small-0, Medium-1, Large-2, ExtraLarge-3");
             
             RuleFor(p => p.CreatedAt)
                 .NotEmpty().WithMessage("Pizza creation date-time is required");

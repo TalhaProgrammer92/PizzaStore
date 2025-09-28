@@ -48,7 +48,7 @@ namespace PizzaStore
             var connectionString = configuration.GetConnectionString("DesktopConnection");
             if (string.IsNullOrWhiteSpace(connectionString))
             {
-                throw new InvalidOperationException("The DesktopConnection string is missing or empty. Please check your configuration.");
+                throw new InvalidOperationException("The connection string is missing or empty. Please check your configuration.");
             }
 
             services.AddDbContext<ApplicationDbContext>(options =>
@@ -87,17 +87,12 @@ namespace PizzaStore
                 }
             ));
 
-            //// Register Data, Services, and Core layers
-            //services.AddDataDI()
-            //        .AddServiceDI()
-            //        .AddCoreDI(configuration);
-
             //// Configure Hangfire with SQL Server
             //services.AddHangfire(config =>
             //{
             //    config.UseSqlServerStorage(connectionString);
             //});
-            
+
             //// Add Hangfire Server
             //services.AddHangfireServer();
 
