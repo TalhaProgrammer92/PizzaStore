@@ -39,6 +39,7 @@ namespace PizzaStore
         public static IServiceCollection AddServiceDI(this IServiceCollection services)
         {
             services.AddScoped<IPizzaService, PizzaService>();
+            services.AddScoped<IUserService, UserService>();
 
             return services;
         }
@@ -60,6 +61,8 @@ namespace PizzaStore
 
             services.AddScoped<IUnitOfWork, UnitOfWork>();
             services.AddScoped<IPizzaRepository, PizzaRepository>();
+            services.AddScoped<IUserRepository, UserRepository>();
+
             services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
 
             return services;

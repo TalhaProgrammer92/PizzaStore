@@ -38,7 +38,7 @@ namespace PizzaStore.Controllers
         public async Task<IActionResult> CreateUser([FromBody] UserDto userDto)
         {
             await _service.CreateUserAsync(userDto);
-            return CreatedAtAction(nameof(GetUserById), new { id = userDto.Id }, userDto);
+            return Ok("User has been created successfully");
         }
 
         [HttpPut("{id}")]
