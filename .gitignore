@@ -115,3 +115,4 @@ out/
 Thumbs.db
 desktop.ini
 .github
+Migrations/     # I work with multiple systems and database servers so this could not not raise any issue related to migrations and database updates

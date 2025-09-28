@@ -46,7 +46,7 @@ namespace PizzaStore
 
         public static IServiceCollection AddDataDI(this IServiceCollection services, IConfiguration configuration)
         {
-            var connectionString = configuration.GetConnectionString("DesktopConnection");
+            var connectionString = configuration.GetConnectionString("DefaultConnection");
             if (string.IsNullOrWhiteSpace(connectionString))
             {
                 throw new InvalidOperationException("The connection string is missing or empty. Please check your configuration.");
@@ -70,19 +70,15 @@ namespace PizzaStore
 
         public static IServiceCollection AddAppDI(this IServiceCollection services, IConfiguration configuration)
         {
-            //services.AddCoreDI(configuration);
-            //services.AddServiceDI();
-            //return services;
-
             // Validate ConnectionString
-            var connectionString = configuration.GetConnectionString("DesktopConnection");
+            var connectionString = configuration.GetConnectionString("DefaultConnection");
             if (string.IsNullOrWhiteSpace(connectionString))
             {
-                throw new InvalidOperationException("The DesktopConnection string is missing or empty. Please check your configuration.");
+                throw new InvalidOperationException("The connection string is missing or empty. Please check your configuration.");
             }
             services.AddDbContext<ApplicationDbContext>(options =>
             options.UseSqlServer(
-                configuration.GetConnectionString("DesktopConnection"),
+                configuration.GetConnectionString("DefaultConnection"),
                 sqlOptions =>
                 {
                     sqlOptions.CommandTimeout(80);
@@ -127,7 +123,7 @@ namespace PizzaStore
             // Swagger Configuration
             services.AddSwaggerGen(options =>
             {
-                options.SwaggerDoc("v1", new OpenApiInfo { Title = "PizazStore API", Version = "v1" });
+                options.SwaggerDoc("v1", new OpenApiInfo { Title = "PizzaStore API", Version = "v1" });
 
                 // Add JWT Authentication to Swagger
                 //options.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
@@ -140,20 +136,20 @@ namespace PizzaStore
                 //    Description = "JWT Authorization header using the Bearer scheme. Example: 'Bearer {token}'"
                 //});
 
-                options.AddSecurityRequirement(new OpenApiSecurityRequirement
-                {
-                    {
-                        new OpenApiSecurityScheme
-                        {
-                            Reference = new OpenApiReference
-                            {
-                                Type = ReferenceType.SecurityScheme,
-                                Id = "Bearer"
-                            }
-                        },
-                        Array.Empty<string>()
-                    }
-                });
+                //options.AddSecurityRequirement(new OpenApiSecurityRequirement
+                //{
+                //    {
+                //        new OpenApiSecurityScheme
+                //        {
+                //            Reference = new OpenApiReference
+                //            {
+                //                Type = ReferenceType.SecurityScheme,
+                //                Id = "Bearer"
+                //            }
+                //        },
+                //        Array.Empty<string>()
+                //    }
+                //});
             });
 
             return services;
