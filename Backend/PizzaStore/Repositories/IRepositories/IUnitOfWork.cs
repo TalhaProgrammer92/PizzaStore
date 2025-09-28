@@ -5,6 +5,7 @@ namespace PizzaStore.Repositories.IRepositories
     public interface IUnitOfWork : IDisposable
     {
         IPizzaRepository PizzaRepository { get; }
+        IUserRepository UserRepository { get; }
 
         // Tasks
         Task<int> SaveChangesAsync();

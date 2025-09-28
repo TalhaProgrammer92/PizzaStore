@@ -12,6 +12,7 @@ namespace PizzaStore.Repositories
 
         // Repositories
         private IPizzaRepository? _pizzaRepository;
+        private IUserRepository? _userRepository;
 
         public UnitOfWork(ApplicationDbContext context)
         {
@@ -20,6 +21,7 @@ namespace PizzaStore.Repositories
 
         // Repositories loading...
         public IPizzaRepository PizzaRepository => _pizzaRepository ??= new PizzaRepository(_context);
+        public IUserRepository UserRepository => _userRepository ??= new UserRepository(_context);
 
         public async Task CommitAsync()
         {

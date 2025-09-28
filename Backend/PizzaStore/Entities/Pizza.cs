@@ -22,11 +22,12 @@ namespace PizzaStore.Entities
         public decimal? DiscountPrice { get; set; }
 
         [Required]
+        public bool IsAvailable { get; set; } = true;
+
+        [Required]
         public PizzaSize Size { get; set; }
 
         [Required]
         public DateTime CreatedAt { get; set; } = DateTime.Now;
-        
-        public DateTime? UpdatedAt { get; set; }
     }
 }

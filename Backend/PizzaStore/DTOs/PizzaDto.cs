@@ -11,9 +11,9 @@ namespace PizzaStore.DTOs
         public decimal Price { get; set; }
         public decimal? Discount { get; set; }
         public decimal? DiscountPrice { get; set; }
+        public bool IsAvailable { get; set; }
         public PizzaSize Size { get; set; }
 
         public DateTime CreatedAt { get; set; }
-        public DateTime? UpdatedAt { get; set; }
     }
 }
