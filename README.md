@@ -11,7 +11,7 @@ Designed with **Clean Architecture (MVVM + Repository Pattern)** — this projec
 
 This project follows a **multi-layered clean architecture** to separate concerns and maintain scalability:
 
-```
+```css
 PizzaStore/
 │
 ├── PizzaStore.Domain           → Entities, Models, Core Logic (no dependencies)
