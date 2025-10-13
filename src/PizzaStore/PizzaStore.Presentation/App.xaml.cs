@@ -7,8 +7,7 @@ using PizzaStore.ApplicationCore.Interfaces.Services;
 using PizzaStore.ApplicationCore.Services.AuthService;
 using PizzaStore.Infrastructure.Data;
 using PizzaStore.Infrastructure.Repositories;
-using PizzaStore.Presentation.ViewModels.LoginViewModel;
-using PizzaStore.Presentation.ViewModels.MainWindowViewModel;
+using PizzaStore.Presentation.ViewModels;
 using System.Configuration;
 using System.Data;
 using System.Windows;
@@ -44,7 +43,7 @@ namespace PizzaStore.Presentation
 
                     // ViewModels & Views
                     services.AddSingleton<MainWindow>();
-                    services.AddTransient<MainWindowViewModel>();
+                    //services.AddTransient<MainWindowViewModel>();
                     services.AddTransient<LoginViewModel>();
 
                     // other services...

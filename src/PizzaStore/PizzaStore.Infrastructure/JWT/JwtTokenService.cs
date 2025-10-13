@@ -14,17 +14,17 @@ namespace PizzaStore.Infrastructure.JWT
 {
     public class JwtTokenService
     {
-        public string GenerateToken(User user, string secretKey, int expireMinutes = 60)
-        {
-            var key = Encoding.UTF8.GetBytes(configuration["Jwt:Key"]);
-            var claims = new[] {
-                new Claim(JwtRegisteredClaimNames.Sub, user.Id.ToString()),
-                new Claim(ClaimTypes.Name, user.Username),
-                new Claim(ClaimTypes.Role, user.Role.ToString())
-            };
-            var creds = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256);
-            var token = new JwtSecurityToken(issuer: config["Jwt:Issuer"], audience: config["Jwt:Audience"], claims: claims, expires: DateTime.UtcNow.AddMinutes(30), signingCredentials: creds);
-            return new JwtSecurityTokenHandler().WriteToken(token);
-        }
+        //public string GenerateToken(User user, string secretKey, int expireMinutes = 60)
+        //{
+        //    var key = Encoding.UTF8.GetBytes(configuration["Jwt:Key"]);
+        //    var claims = new[] {
+        //        new Claim(JwtRegisteredClaimNames.Sub, user.Id.ToString()),
+        //        new Claim(ClaimTypes.Name, user.Username),
+        //        new Claim(ClaimTypes.Role, user.Role.ToString())
+        //    };
+        //    var creds = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256);
+        //    var token = new JwtSecurityToken(issuer: config["Jwt:Issuer"], audience: config["Jwt:Audience"], claims: claims, expires: DateTime.UtcNow.AddMinutes(30), signingCredentials: creds);
+        //    return new JwtSecurityTokenHandler().WriteToken(token);
+        //}
     }
 }
