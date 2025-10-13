@@ -6,6 +6,9 @@
         <!-- Left nav -->
         <StackPanel DockPanel.Dock="Left" Width="220" Background="#FFF97F03">
             <TextBlock Text="Pizza Store" FontSize="26" Margin="10" FontWeight="Bold"/>
+            
+            <RadioButton Content="Dashboard" Margin="5"/>
+            
             <!-- Buttons for Menu, Orders, Admin etc -->
         </StackPanel>
 
