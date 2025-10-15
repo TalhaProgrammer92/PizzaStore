@@ -86,6 +86,11 @@ _ReSharper*/
 *.log
 *.vspscc
 *.vssscc
+desktop.ini
+.github
+*.zip
+*.rar
+*.sfx
 
 # Build directories (C#)
 x64/
@@ -125,10 +130,3 @@ secrets.json
 
 # As I'm working on different machines so I ignore migrations to avoid database conflicts
 **/Migrations/
-
-# Others
-desktop.ini
-.github
-*.zip
-*.rar
-*.sfx
