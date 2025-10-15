@@ -5,6 +5,7 @@ using Microsoft.Extensions.Hosting;
 using PizzaStore.ApplicationCore.Interfaces.Repositories;
 using PizzaStore.ApplicationCore.Interfaces.Services;
 using PizzaStore.ApplicationCore.Services.AuthService;
+using PizzaStore.ApplicationCore.Services.JwtTokenService;
 using PizzaStore.Infrastructure.Data;
 using PizzaStore.Infrastructure.Repositories;
 using PizzaStore.Presentation.ViewModels;
@@ -39,7 +40,7 @@ namespace PizzaStore.Presentation
                     // Application & Infrastructure registrations
                     services.AddScoped<IUserRepository, UserRepository>();
                     services.AddScoped<IAuthService, AuthService>();
-                    //services.AddScoped<ITokenService, JwtTokenService>();
+                    services.AddScoped<ITokenService, JwtTokenService>();
 
                     // ViewModels & Views
                     services.AddSingleton<MainWindow>();
