@@ -123,10 +123,12 @@ secrets.json
 *.log
 *.dmp
 
+# As I'm working on different machines so I ignore migrations to avoid database conflicts
+**/Migrations/
+
 # Others
 desktop.ini
 .github
-**/Migrations/
 *.zip
 *.rar
 *.sfx
