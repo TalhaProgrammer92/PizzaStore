@@ -128,7 +128,7 @@ This project is open-source under the [**MIT License**](/LICENSE).
 ## 🏗️ Author
 
 **Talha Ahmad**
-🚀 *BSCS Student | .NET & ASP.NET Developer | Software Engineer in Progress*
+🚀 *.NET & ASP.NET Developer | Software Engineer*
 📎 [LinkedIn Profile](https://www.linkedin.com/in/talha-ahmad-720171324/)
 📎 [GitHub Profile](https://github.com/TalhaProgrammer92)
 
