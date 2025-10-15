@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace PizzaStore.Domain.Entities.Order
 {
-    public class Order
+    public class Order : EntityBase
     {
     }
 }

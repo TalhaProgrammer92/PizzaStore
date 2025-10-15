@@ -9,6 +9,7 @@ using PizzaStore.ApplicationCore.Services.JwtTokenService;
 using PizzaStore.Infrastructure.Data;
 using PizzaStore.Infrastructure.Repositories;
 using PizzaStore.Presentation.ViewModels;
+using PizzaStore.Presentation.Views;
 using System.Configuration;
 using System.Data;
 using System.Windows;
@@ -43,18 +44,29 @@ namespace PizzaStore.Presentation
                     services.AddScoped<ITokenService, JwtTokenService>();
 
                     // ViewModels & Views
-                    services.AddSingleton<MainWindow>();
-                    //services.AddTransient<MainWindowViewModel>();
                     services.AddTransient<LoginViewModel>();
+                    services.AddTransient<MainWindowViewModel>();
+                    services.AddSingleton<MainWindow>();
 
-                    // other services...
+                    services.AddTransient<LoginView>();
+                    services.AddTransient<MainWindow>();
+
+                    // Startup
+                    //var serviceProvider = services.BuildServiceProvider();
+
+                    //var loginWindow = new LoginView
+                    //{
+                    //    DataContext = serviceProvider.GetRequiredService<LoginViewModel>()
+                    //};
+
+                    //loginWindow.Show();
                 })
                 .Build();
 
             await _host.StartAsync();
 
-            var mainWindow = _host.Services.GetRequiredService<MainWindow>();
-            mainWindow.Show();
+            var window = _host.Services.GetRequiredService<LoginView>();
+            window.Show();
         }
 
         protected override async void OnExit(ExitEventArgs e)

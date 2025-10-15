@@ -4,9 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PizzaStore.Domain.Entities.Pizza
+namespace PizzaStore.Domain.ValueObjects
 {
-    public class Pizza : EntityBase
+    public class AppSession
     {
+        public static string? JwtToken { get; set; }
     }
 }

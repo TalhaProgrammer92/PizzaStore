@@ -1,7 +1,12 @@
-﻿namespace PizzaStore.Presentation.ViewModels
+﻿using PizzaStore.ApplicationCore.Interfaces.Services;
+using PizzaStore.Domain.ValueObjects;
+using System.Windows;
+
+namespace PizzaStore.Presentation.ViewModels
 {
     public partial class LoginViewModel : BaseViewModel
     {
+        private readonly ITokenService _tokenService;
         private string _username = string.Empty;
         private string _password = string.Empty;
         private string _statusMessage = string.Empty;
@@ -9,13 +14,21 @@
         public string Username
         {
             get => _username;
-            set => SetProperty(ref _username, value);
+            set 
+            {
+                SetProperty(ref _username, value);
+                LoginCommand.RaiseCanExecuteChanged();
+            }
         }
 
         public string Password
         {
             get => _password;
-            set => SetProperty(ref _password, value);
+            set
+            {
+                SetProperty(ref _password, value);
+                LoginCommand.RaiseCanExecuteChanged();
+            }
         }
 
         public string StatusMessage
@@ -28,26 +41,45 @@
 
         // If you have an IAuthService registered via DI, inject it here.
         // For now I'll keep it simple and show a fake login flow.
-        public LoginViewModel()
+        public LoginViewModel(ITokenService tokenService)
         {
+            _tokenService = tokenService;
             LoginCommand = new AsyncRelayCommand(ExecuteLoginAsync, CanLogin);
         }
 
-        private bool CanLogin() => !string.IsNullOrWhiteSpace(Username) && !string.IsNullOrWhiteSpace(Password);
+        private bool CanLogin() => true;
+            //!string.IsNullOrWhiteSpace(Username) && !string.IsNullOrWhiteSpace(Password);
+
+        private void OpenMainWindow()
+        {
+            // Use the registered MainWindow via DI
+            var mainWindow = new MainWindow();
+            mainWindow.Show();
+
+            // Close the login window
+            Application.Current.Windows
+                .OfType<Window>()
+                .FirstOrDefault(w => w.DataContext == this)?
+                .Close();
+        }
 
         private async Task ExecuteLoginAsync()
         {
-            // Simulate async authentication (replace with real auth service)
-            await Task.Delay(500);
+            // Simulate authentication (later connect to EF Core)
+            MessageBox.Show("Login clicked!"); // Just for debugging
+            await Task.Delay(300);
 
-            if (Username == "admin" && Password == "password")
+            if (Username == "admin" && Password == "12345")
             {
-                StatusMessage = "Login successful";
-                // TODO: set token in user session, navigate to main view, etc.
+                var token = _tokenService.GenerateToken(Username);
+                AppSession.JwtToken = token;
+
+                StatusMessage = "Login successful!";
+                OpenMainWindow();
             }
             else
             {
-                StatusMessage = "Invalid credentials";
+                StatusMessage = "Invalid username or password!";
             }
         }
     }

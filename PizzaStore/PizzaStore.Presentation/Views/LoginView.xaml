@@ -2,28 +2,27 @@
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:viewmodels="clr-namespace:PizzaStore.Presentation.ViewModels"
+        xmlns:helpers="clr-namespace:PizzaStore.Presentation.Helpers"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        d:DataContext="{d:DesignInstance Type=viewmodels:LoginViewModel, IsDesignTimeCreatable=True}"
+        d:DataContext="{d:DesignInstance Type=viewmodels:LoginViewModel}"
         mc:Ignorable="d"
         Title="Login" Height="350" Width="400">
     <Grid Margin="20">
         <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Width="300">
             <TextBlock Text="Login" FontSize="24" Margin="0,0,0,10" HorizontalAlignment="Center" FontWeight="Bold"/>
-
-            <!-- Username -->
-            <TextBox Text="{Binding Username, UpdateSourceTrigger=PropertyChanged}" 
-                     Margin="0,6" Height="28" />
-
-            <!-- Password - we will forward PasswordBox.Password to VM in code-behind -->
-            <PasswordBox x:Name="PwdBox" Margin="0,6" Height="28"
-                         PasswordChanged="PwdBox_PasswordChanged" />
-
-            <!-- Login button -->
-            <Button x:Name="LoginButton" Content="Login" Command="{Binding LoginCommand}" Margin="0,12,0,0" Height="30" Foreground="Black" Background="#FFED9E0F"/>
-
-            <!-- Status -->
-            <TextBlock Text="{Binding StatusMessage}" Foreground="Red" Margin="0,10,0,0" TextWrapping="Wrap"/>
+            
+            <!-- User Name Entry -->
+            <TextBox Text="{Binding Username, UpdateSourceTrigger=PropertyChanged}" Margin="0,0,0,8" />
+            
+            <!-- Password Entry -->
+            <PasswordBox helpers:PasswordBoxHelper.BoundPassword="{Binding Password, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="0,0,0,8" />
+            
+            <!-- Login Button -->
+            <Button Content="Login" Command="{Binding LoginCommand}" Margin="0,8,0,0" />
+            
+            <!-- Status Message -->
+            <TextBlock Text="{Binding StatusMessage}" Foreground="Red" Margin="0,8,0,0"/>
         </StackPanel>
     </Grid>
 </Window>
