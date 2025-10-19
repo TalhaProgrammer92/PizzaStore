@@ -128,5 +128,5 @@ secrets.json
 *.log
 *.dmp
 
-# As I'm working on different machines so I ignore migrations to avoid database conflicts
+# I'm working on different machines so I ignore migrations to avoid database conflicts
 **/Migrations/
