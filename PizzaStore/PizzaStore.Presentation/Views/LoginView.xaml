@@ -7,9 +7,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         d:DataContext="{d:DesignInstance Type=viewmodels:LoginViewModel}"
         mc:Ignorable="d"
-        Title="Login" Height="350" Width="400">
+        Title="Login" Height="350" Width="1250">
     <Grid Margin="20">
-        <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Width="300">
+        <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Width="1200">
             <TextBlock Text="Login" FontSize="24" Margin="0,0,0,10" HorizontalAlignment="Center" FontWeight="Bold"/>
             
             <!-- User Name Entry -->

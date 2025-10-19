@@ -6,10 +6,18 @@ namespace PizzaStore.Presentation.ViewModels
 {
     public partial class LoginViewModel : BaseViewModel
     {
+        private readonly IAuthService _authService;
         private readonly ITokenService _tokenService;
-        private string _username = string.Empty;
-        private string _password = string.Empty;
-        private string _statusMessage = string.Empty;
+        private string _username;
+        private string _password;
+        private string _statusMessage;
+
+        public LoginViewModel(IAuthService authService, ITokenService tokenService)
+        {
+            _authService = authService;
+            _tokenService = tokenService;
+            LoginCommand = new AsyncRelayCommand(ExecuteLoginAsync, CanLogin);
+        }
 
         public string Username
         {
@@ -65,22 +73,30 @@ namespace PizzaStore.Presentation.ViewModels
 
         private async Task ExecuteLoginAsync()
         {
-            // Simulate authentication (later connect to EF Core)
-            MessageBox.Show("Login clicked!"); // Just for debugging
-            await Task.Delay(300);
-
-            if (Username == "admin" && Password == "12345")
+            try
             {
-                var token = _tokenService.GenerateToken(Username);
-                AppSession.JwtToken = token;
+                StatusMessage = string.Empty;
 
-                StatusMessage = "Login successful!";
-                OpenMainWindow();
+                var user = await _authService.AuthenticateAsync(Username, Password);
+
+                if (user != null)
+                {
+                    var token = _tokenService.GenerateToken(user.Username);
+                    AppSession.JwtToken = token;
+
+                    StatusMessage = "Login successful!";
+                    OpenMainWindow();
+                }
+                else
+                {
+                    StatusMessage = "Invalid username or password!";
+                }
             }
-            else
+            catch (Exception ex)
             {
-                StatusMessage = "Invalid username or password!";
+                StatusMessage = $"Error: {ex.Message}";
             }
         }
+
     }
 }

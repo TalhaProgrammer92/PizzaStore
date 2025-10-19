@@ -4,14 +4,12 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using PizzaStore.ApplicationCore.Interfaces.Repositories;
 using PizzaStore.ApplicationCore.Interfaces.Services;
-using PizzaStore.ApplicationCore.Services.AuthService;
 using PizzaStore.ApplicationCore.Services.JwtTokenService;
 using PizzaStore.Infrastructure.Data;
 using PizzaStore.Infrastructure.Repositories;
+using PizzaStore.Infrastructure.Services;
 using PizzaStore.Presentation.ViewModels;
 using PizzaStore.Presentation.Views;
-using System.Configuration;
-using System.Data;
 using System.Windows;
 
 namespace PizzaStore.Presentation
