@@ -14,7 +14,7 @@ This project follows a **multi-layered clean architecture** to separate concerns
 ```
 PizzaStore/
 │
-├── PizzaStore.Domain           → Entities, Models, Core Logic (no dependencies)
+├── PizzaStore.Domain           → Entities, Models, Core Logic
 ├── PizzaStore.Infrastructure   → EF Core (DbContext, Repositories, JWT Services)
 ├── PizzaStore.ApplicationCore  → Services, Interfaces, Business Logic
 ├── PizzaStore.Presentation     → WPF UI Layer (MVVM: Views, ViewModels, Commands)
