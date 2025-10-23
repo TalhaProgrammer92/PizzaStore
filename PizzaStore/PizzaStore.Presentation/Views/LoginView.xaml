@@ -7,10 +7,10 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         d:DataContext="{d:DesignInstance Type=viewmodels:LoginViewModel}"
         mc:Ignorable="d"
-        Title="Login" Height="350" Width="1250">
+        Title="Login" Height="350" Width="250">
     <Grid Margin="20">
-        <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Width="1200">
-            <TextBlock Text="Login" FontSize="24" Margin="0,0,0,10" HorizontalAlignment="Center" FontWeight="Bold"/>
+        <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Width="210">
+            <TextBlock Text="User Login" FontSize="24" Margin="0,0,0,10" HorizontalAlignment="Center" FontWeight="Bold"/>
             
             <!-- User Name Entry -->
             <TextBox Text="{Binding Username, UpdateSourceTrigger=PropertyChanged}" Margin="0,0,0,8" />
@@ -19,7 +19,7 @@
             <PasswordBox helpers:PasswordBoxHelper.BoundPassword="{Binding Password, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="0,0,0,8" />
             
             <!-- Login Button -->
-            <Button Content="Login" Command="{Binding LoginCommand}" Margin="0,8,0,0" />
+            <Button Content="Login" Command="{Binding LoginCommand}" Margin="0,8,0,0" Background="#FFFFA607" />
             
             <!-- Status Message -->
             <TextBlock Text="{Binding StatusMessage}" Foreground="Red" Margin="0,8,0,0"/>

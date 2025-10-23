@@ -27,7 +27,7 @@ namespace PizzaStore.Infrastructure.JWT
                 keyString = keyString.PadRight(32, 'X');
 
             var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(keyString));
-            var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
+            var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha512);
 
             var claims = new[]
             {
