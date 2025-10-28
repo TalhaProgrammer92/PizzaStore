@@ -10,6 +10,7 @@
 
   <ItemGroup>
     <None Remove="appsettings.json" />
+    <None Remove="Assets\Logo\pizza-slice.png" />
   </ItemGroup>
 
   <ItemGroup>
@@ -33,6 +34,10 @@
     <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="9.0.9" />
     <PackageReference Include="Microsoft.Extensions.Hosting" Version="9.0.9" />
     <PackageReference Include="Microsoft.Extensions.Logging" Version="9.0.9" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Assets\Logo\pizza-slice.png" />
   </ItemGroup>
 
 </Project>
