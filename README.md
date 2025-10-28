@@ -117,7 +117,7 @@ The tokens are generated and validated within the app using local logic (no exte
 
 #### 🎨 Main Window UI
 I created a modern and clean UI of the main window using only XAML, without replying on any third-party libraries/tools. You can take a look:
-![Main Window](/Screenshots/Main%20Window%20-%20UI%20v1.png)
+![Main Window](/Screenshots/Main%20Window/Main%20Window%20-%20UI%20v2.png)
 It can be polished even further and I'll add more components like graphs, cards, cart, filters, etc.
 
 ---
