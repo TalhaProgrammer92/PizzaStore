@@ -19,7 +19,7 @@
             <PasswordBox helpers:PasswordBoxHelper.BoundPassword="{Binding Password, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="0,0,0,8" />
             
             <!-- Login Button -->
-            <Button Content="Login" Command="{Binding LoginCommand}" Margin="0,8,0,0" Background="#FFFFA607" />
+            <Button Content="Login" Command="{Binding LoginCommand}" Margin="0,8,0,0" Background="#FFFFA607"/>
             
             <!-- Status Message -->
             <TextBlock Text="{Binding StatusMessage}" Foreground="Red" Margin="0,8,0,0"/>
