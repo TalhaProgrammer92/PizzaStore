@@ -8,6 +8,7 @@
         d:DataContext="{d:DesignInstance Type=viewmodels:LoginViewModel}"
         mc:Ignorable="d"
         Title="Pizza Store | Login"
+        Icon="/Assets/Logo/pizza-full.png"
         WindowStartupLocation="CenterScreen"
         ResizeMode="NoResize"
         Height="420" Width="340"

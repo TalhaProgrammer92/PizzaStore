@@ -115,10 +115,24 @@ The tokens are generated and validated within the app using local logic (no exte
 
 ## 📸 Screenshots
 
+#### 👤 Login UI
+I tranformed the login UI from old fashion to a cool modern look. There's two active accounts in my database:
+
+| Username | Password | Role |
+|----------|----------|------|
+| admin | 12345 | 1 (Admin) |
+| customer | customer123 | 0 (User) |
+
+The login UI now looks like this:
+
+![Login Window](/Screenshots/Login%20Window/Login%20window%20-%20ui.png)
+
 #### 🎨 Main Window UI
 I created a modern and clean UI of the main window using only XAML, without replying on any third-party libraries/tools. You can take a look:
+
 ![Main Window](/Screenshots/Main%20Window/Main%20Window%20-%20UI%20v3.png)
-It can be polished even further and I'll add more components like graphs, cards, cart, filters, etc.
+
+It can be polished even further and I'll add more components like graphs, cards, cart, filters, etc. and all related features for each section.
 
 ---
 
