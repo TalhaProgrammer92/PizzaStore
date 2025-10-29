@@ -4,6 +4,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using PizzaStore.ApplicationCore.Interfaces.Repositories;
 using PizzaStore.ApplicationCore.Interfaces.Services;
+using PizzaStore.Infrastructure;
 using PizzaStore.Infrastructure.Data;
 using PizzaStore.Infrastructure.JWT;
 using PizzaStore.Infrastructure.Repositories;
@@ -48,20 +49,12 @@ namespace PizzaStore.Presentation
 
                     services.AddTransient<LoginView>();
                     services.AddTransient<MainWindow>();
-
-                    // Startup
-                    //var serviceProvider = services.BuildServiceProvider();
-
-                    //var loginWindow = new LoginView
-                    //{
-                    //    DataContext = serviceProvider.GetRequiredService<LoginViewModel>()
-                    //};
-
-                    //loginWindow.Show();
                 })
                 .Build();
 
             await _host.StartAsync();
+
+            await DbSeeder.SeedAsync(_host.Services);
 
             var window = _host.Services.GetRequiredService<LoginView>();
             window.Show();

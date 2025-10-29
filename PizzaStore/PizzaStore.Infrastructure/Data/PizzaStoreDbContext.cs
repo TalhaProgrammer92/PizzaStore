@@ -3,6 +3,7 @@ using PizzaStore.Domain.Entities;
 using PizzaStore.Domain.Entities.Order;
 using PizzaStore.Domain.Entities.Pizza;
 using PizzaStore.Domain.Entities.User;
+using PizzaStore.Domain.Enums;
 
 namespace PizzaStore.Infrastructure.Data
 {
