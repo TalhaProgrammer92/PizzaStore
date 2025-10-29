@@ -1,20 +1,26 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Controls;
 
 namespace PizzaStore.Presentation.Helpers
 {
     public class PasswordBoxHelper
     {
+        //public static readonly DependencyProperty BoundPassword =
+        //   DependencyProperty.RegisterAttached("BoundPassword", typeof(string), typeof(PasswordBoxHelper),
+        //       new PropertyMetadata(string.Empty, OnBoundPasswordChanged));
+        
+        // Added binding support to tell XAML
         public static readonly DependencyProperty BoundPassword =
-           DependencyProperty.RegisterAttached("BoundPassword", 
-               typeof(string), 
-               typeof(PasswordBoxHelper),
-               new PropertyMetadata(string.Empty, OnBoundPasswordChanged));
+            DependencyProperty.RegisterAttached(
+                "BoundPassword",
+                typeof(string),
+                typeof(PasswordBoxHelper),
+                new FrameworkPropertyMetadata(
+                    string.Empty,
+                    FrameworkPropertyMetadataOptions.BindsTwoWayByDefault,
+                    OnBoundPasswordChanged
+                ));
+
 
         public static string GetBoundPassword(DependencyObject dp) =>
             (string)dp.GetValue(BoundPassword);
@@ -28,10 +34,6 @@ namespace PizzaStore.Presentation.Helpers
         {
             if (d is PasswordBox passwordBox)
             {
-                //passwordBox.PasswordChanged -= PasswordChanged;
-                //passwordBox.Password = e.NewValue?.ToString() ?? string.Empty;
-                //passwordBox.PasswordChanged += PasswordChanged;
-                // Avoid recursive updates
                 passwordBox.PasswordChanged -= PasswordChanged;
 
                 if (!_isUpdating)

@@ -7,22 +7,165 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         d:DataContext="{d:DesignInstance Type=viewmodels:LoginViewModel}"
         mc:Ignorable="d"
-        Title="Login" Height="350" Width="280">
-    <Grid Margin="20">
-        <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Width="210">
-            <TextBlock Text="User Login" FontSize="24" Margin="0,0,0,10" HorizontalAlignment="Center" FontWeight="Bold"/>
-            
-            <!-- User Name Entry -->
-            <TextBox Text="{Binding Username, UpdateSourceTrigger=PropertyChanged}" Margin="0,0,0,8" />
-            
-            <!-- Password Entry -->
-            <PasswordBox helpers:PasswordBoxHelper.BoundPassword="{Binding Password, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="0,0,0,8" />
-            
-            <!-- Login Button -->
-            <Button Content="Login" Command="{Binding LoginCommand}" Margin="0,8,0,0" Background="#FFFFA607"/>
-            
-            <!-- Status Message -->
-            <TextBlock Text="{Binding StatusMessage}" Foreground="Red" Margin="0,8,0,0"/>
-        </StackPanel>
+        Title="Pizza Store | Login"
+        WindowStartupLocation="CenterScreen"
+        ResizeMode="NoResize"
+        Height="420" Width="340"
+        Background="#FFF7F7F7">
+
+    <Window.Resources>
+        <!-- Gradient background for accents -->
+        <LinearGradientBrush x:Key="OrangeRedGradient" StartPoint="0,0" EndPoint="1,1">
+            <GradientStop Color="#FFFA812F" Offset="0"/>
+            <GradientStop Color="#FFF64B29" Offset="1"/>
+        </LinearGradientBrush>
+
+        <!-- TextBox style with rounded corners -->
+        <Style x:Key="TextBoxRounded" TargetType="TextBox">
+            <Setter Property="SnapsToDevicePixels" Value="True"/>
+            <Setter Property="OverridesDefaultStyle" Value="True"/>
+            <Setter Property="MinHeight" Value="36"/>
+            <Setter Property="Padding" Value="8"/>
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="TextBox">
+                        <Border x:Name="Bd"
+                                Background="{TemplateBinding Background}"
+                                BorderBrush="{TemplateBinding BorderBrush}"
+                                BorderThickness="{TemplateBinding BorderThickness}"
+                                CornerRadius="8"
+                                SnapsToDevicePixels="True">
+                            <ScrollViewer x:Name="PART_ContentHost" 
+                                          Margin="0"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter TargetName="Bd" Property="BorderBrush" Value="#FFDDDDDD"/>
+                            </Trigger>
+                            <Trigger Property="IsFocused" Value="True">
+                                <Setter TargetName="Bd" Property="BorderBrush" Value="#FFF97F03"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="Background" Value="White"/>
+            <Setter Property="BorderBrush" Value="#FFE3E3E3"/>
+            <Setter Property="BorderThickness" Value="1"/>
+        </Style>
+
+        <!-- PasswordBox style uses the same visual template -->
+        <Style x:Key="PasswordBoxRounded" TargetType="PasswordBox">
+            <Setter Property="SnapsToDevicePixels" Value="True"/>
+            <Setter Property="OverridesDefaultStyle" Value="True"/>
+            <Setter Property="MinHeight" Value="36"/>
+            <Setter Property="Padding" Value="8"/>
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="PasswordBox">
+                        <Border x:Name="Bd"
+                                Background="{TemplateBinding Background}"
+                                BorderBrush="{TemplateBinding BorderBrush}"
+                                BorderThickness="{TemplateBinding BorderThickness}"
+                                CornerRadius="8"
+                                SnapsToDevicePixels="True">
+                            <ScrollViewer x:Name="PART_ContentHost" Margin="0"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter TargetName="Bd" Property="BorderBrush" Value="#FFDDDDDD"/>
+                            </Trigger>
+                            <Trigger Property="IsFocused" Value="True">
+                                <Setter TargetName="Bd" Property="BorderBrush" Value="#FFF97F03"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="Background" Value="White"/>
+            <Setter Property="BorderBrush" Value="#FFE3E3E3"/>
+            <Setter Property="BorderThickness" Value="1"/>
+        </Style>
+
+        <!-- Accent button -->
+        <Style x:Key="AccentButton" TargetType="Button">
+            <Setter Property="Height" Value="40"/>
+            <Setter Property="Background" Value="#FFF97F03"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="FontWeight" Value="SemiBold"/>
+            <Setter Property="FontSize" Value="15"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}" 
+                                CornerRadius="8">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="#FFFF9B00"/>
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter Property="Background" Value="#FFE86C00"/>
+                            </Trigger>
+                            <Trigger Property="IsEnabled" Value="False">
+                                <Setter Property="Opacity" Value="0.6"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+    </Window.Resources>
+
+    <!-- Background -->
+    <Grid>
+        <Grid.Background>
+            <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                <GradientStop Color="#FFFFF4E6" Offset="0"/>
+                <GradientStop Color="#FFFFD9B3" Offset="1"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+
+        <!-- Card -->
+        <Border Width="320" Padding="24" CornerRadius="14" Background="White" 
+                HorizontalAlignment="Center" VerticalAlignment="Center"
+                BorderBrush="#FFECECEC" BorderThickness="1">
+            <Border.Effect>
+                <DropShadowEffect BlurRadius="20" ShadowDepth="6" Opacity="0.12" />
+            </Border.Effect>
+
+            <StackPanel>
+                <!-- Header -->
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,0,0,12">
+                    <Image Source="/Assets/Logo/pizza-slice.png" Width="36" Height="36" Margin="0,0,8,0"/>
+                    <TextBlock Text="Pizza Store" FontSize="22" FontWeight="Bold" Foreground="#FFF97F03" VerticalAlignment="Center"/>
+                </StackPanel>
+
+                <TextBlock Text="Welcome back!" FontSize="16" FontWeight="SemiBold" Foreground="#FF5A3A00" HorizontalAlignment="Center" Margin="0,0,0,14"/>
+
+                <!-- Username -->
+                <TextBlock Text="Username" FontSize="12" Foreground="#FF6B6B6B" Margin="2,0,0,4"/>
+                <TextBox Style="{StaticResource TextBoxRounded}"
+                         Text="{Binding Username, UpdateSourceTrigger=PropertyChanged}" />
+
+                <!-- Password -->
+                <TextBlock Text="Password" FontSize="12" Foreground="#FF6B6B6B" Margin="8,8,0,4"/>
+                <PasswordBox Style="{StaticResource PasswordBoxRounded}" helpers:PasswordBoxHelper.BoundPassword="{Binding Password, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+
+                <!-- Actions -->
+                <Button Content="Login" Style="{StaticResource AccentButton}" Command="{Binding LoginCommand}" Margin="0,14,0,0"/>
+
+                <TextBlock Text="{Binding StatusMessage}" Foreground="Red" Margin="0,10,0,0" TextAlignment="Center" FontWeight="SemiBold"/>
+
+                <!-- optional small footer -->
+                <TextBlock Text="Forgot password?" Foreground="#FF6B6B6B" HorizontalAlignment="Center" Margin="0,12,0,0" FontSize="12"/>
+            </StackPanel>
+        </Border>
     </Grid>
 </Window>
