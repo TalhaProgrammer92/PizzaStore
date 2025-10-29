@@ -11,6 +11,9 @@
         Background="#FFF7F3E3">
 
     <Window.Resources>
+        <!-- App Icon -->
+        <BitmapImage x:Key="AppLogo" UriSource="Assets/Logo/pizza-slice.png"/>
+        
         <!-- Navigation Button Style -->
         <Style x:Key="NavButtonStyle" TargetType="RadioButton">
             <Setter Property="Foreground" Value="White"/>
@@ -57,8 +60,7 @@
 
                 <!-- APP LOGO / TITLE -->
                 <StackPanel Orientation="Horizontal" Margin="10,0,0,20" VerticalAlignment="Center">
-                    <!--<Ellipse Width="40" Height="40" Fill="#FFF44336" />-->
-                    <Image Source="Assets/Logo/pizza-slice.png" Width="40" Height="40"/>
+                    <Image Source="{StaticResource AppLogo}" Width="40" Height="40"/>
                     <TextBlock Text="Pizza Store" 
                                Foreground="White"
                                FontSize="24" 
