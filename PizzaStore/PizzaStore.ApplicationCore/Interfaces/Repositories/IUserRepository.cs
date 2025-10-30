@@ -7,10 +7,10 @@ using System.Threading.Tasks;
 
 namespace PizzaStore.ApplicationCore.Interfaces.Repositories
 {
-    public interface IUserRepository
+    public interface IUserRepository : IGeneralRepository<User>
     {
         Task<User?> GetByUsernameAsync(string username);
-        Task AddAsync(User user);
-        Task SaveChangesAsync();
+        //Task AddAsync(User user);
+        //Task SaveChangesAsync();
     }
 }

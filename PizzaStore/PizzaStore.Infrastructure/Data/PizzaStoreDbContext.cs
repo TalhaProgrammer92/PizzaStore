@@ -2,8 +2,8 @@
 using PizzaStore.Domain.Entities;
 using PizzaStore.Domain.Entities.Order;
 using PizzaStore.Domain.Entities.Pizza;
+using PizzaStore.Domain.Entities.PizzaVariety;
 using PizzaStore.Domain.Entities.User;
-using PizzaStore.Domain.Enums;
 
 namespace PizzaStore.Infrastructure.Data
 {
@@ -15,12 +15,25 @@ namespace PizzaStore.Infrastructure.Data
         public DbSet<User> Users { get; set; }
         public DbSet<Pizza> Pizzas { get; set; }
         public DbSet<Order> Orders { get; set; }
+        public DbSet<PizzaVariety> PizzaVarieties { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             // User - Configuration
             modelBuilder.Entity<User>()
                 .HasIndex(u => u.Username).IsUnique();
+
+            // Pizza - Configuration
+            modelBuilder.Entity<Pizza>()
+                .HasOne(p => p.PizzaVariety)
+                .WithMany(pv => pv.Pizzas)
+                .HasForeignKey(p => p.PizzaVariety.Id);
+
+            // PizzaVariety - Configuration
+            modelBuilder.Entity<PizzaVariety>()
+                .HasMany(pv => pv.Pizzas)
+                .WithOne(p => p.PizzaVariety)
+                .HasForeignKey(p => p.PizzaVariety.Id);
         }
     }
 }
