@@ -38,6 +38,7 @@ namespace PizzaStore.Presentation
                         opts.UseSqlServer(configuration.GetConnectionString("DefaultConnection")));
 
                     // Application & Infrastructure registrations
+                    services.AddScoped(typeof(IGeneralRepository<>), typeof(GeneralRepository<>));
                     services.AddScoped<IUserRepository, UserRepository>();
                     services.AddScoped<IAuthService, AuthService>();
                     services.AddScoped<ITokenService, JwtTokenService>();

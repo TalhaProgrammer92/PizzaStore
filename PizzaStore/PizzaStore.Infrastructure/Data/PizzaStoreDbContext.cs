@@ -27,13 +27,7 @@ namespace PizzaStore.Infrastructure.Data
             modelBuilder.Entity<Pizza>()
                 .HasOne(p => p.PizzaVariety)
                 .WithMany(pv => pv.Pizzas)
-                .HasForeignKey(p => p.PizzaVariety.Id);
-
-            // PizzaVariety - Configuration
-            modelBuilder.Entity<PizzaVariety>()
-                .HasMany(pv => pv.Pizzas)
-                .WithOne(p => p.PizzaVariety)
-                .HasForeignKey(p => p.PizzaVariety.Id);
+                .HasForeignKey(p => p.PizzaVarietyId);
         }
     }
 }
