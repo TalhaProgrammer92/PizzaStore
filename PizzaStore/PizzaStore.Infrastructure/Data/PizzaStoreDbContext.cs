@@ -1,5 +1,4 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using PizzaStore.Domain.Entities;
 using PizzaStore.Domain.Entities.Order;
 using PizzaStore.Domain.Entities.Pizza;
 using PizzaStore.Domain.Entities.PizzaVariety;

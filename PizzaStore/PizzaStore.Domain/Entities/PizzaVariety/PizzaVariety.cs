@@ -1,6 +1,4 @@
 ﻿using System.ComponentModel.DataAnnotations;
-using PizzaStore.Domain.Entities.Pizza;
-using PizzaStore.Domain.Enums;
 
 namespace PizzaStore.Domain.Entities.PizzaVariety
 {
@@ -9,7 +7,7 @@ namespace PizzaStore.Domain.Entities.PizzaVariety
         [Required]
         public string Name { get; set; }
 
-        public Size? Size { get; set; }
+        //public Size? Size { get; set; }
 
         public ICollection<Pizza.Pizza> Pizzas { get; set; }
     }

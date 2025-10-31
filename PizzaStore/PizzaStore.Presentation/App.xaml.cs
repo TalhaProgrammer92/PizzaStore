@@ -7,6 +7,7 @@ using PizzaStore.ApplicationCore.Interfaces.Services;
 using PizzaStore.Infrastructure;
 using PizzaStore.Infrastructure.Data;
 using PizzaStore.Infrastructure.JWT;
+using PizzaStore.Infrastructure.Mapping;
 using PizzaStore.Infrastructure.Repositories;
 using PizzaStore.Infrastructure.Services;
 using PizzaStore.Presentation.ViewModels;
@@ -40,8 +41,16 @@ namespace PizzaStore.Presentation
                     // Application & Infrastructure registrations
                     services.AddScoped(typeof(IGeneralRepository<>), typeof(GeneralRepository<>));
                     services.AddScoped<IUserRepository, UserRepository>();
+
                     services.AddScoped<IAuthService, AuthService>();
                     services.AddScoped<ITokenService, JwtTokenService>();
+                    services.AddScoped<IPizzaService, PizzaService>();
+                    services.AddScoped<IPizzaVarietyService, PizzaVarietyService>();
+                    services.AddScoped<IUserService, UserService>();
+                    services.AddScoped<IOrderService, OrderService>();
+
+                    // Automapper
+                    services.AddAutoMapper(typeof(MappingProfile));
 
                     // ViewModels & Views
                     services.AddTransient<LoginViewModel>();
