@@ -127,6 +127,3 @@ secrets.json
 # Logs and crash dumps
 *.log
 *.dmp
-
-# I'm working on different machines so I ignore migrations to avoid database conflicts
-**/Migrations/
