@@ -36,7 +36,9 @@ namespace PizzaStore.Presentation
                 {
                     var configuration = context.Configuration;
                     services.AddDbContext<PizzaStoreDbContext>(opts =>
-                        opts.UseSqlServer(configuration.GetConnectionString("DefaultConnection")));
+                        opts
+                            .UseLazyLoadingProxies()
+                            .UseSqlServer(configuration.GetConnectionString("DefaultConnection")));
 
                     // Application & Infrastructure registrations
                     services.AddScoped(typeof(IGeneralRepository<>), typeof(GeneralRepository<>));

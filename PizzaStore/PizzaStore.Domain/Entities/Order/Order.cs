@@ -13,6 +13,8 @@ namespace PizzaStore.Domain.Entities.Order
         public Guid UserId { get; set; }
         
         [Required]
-        public User.User User { get; set; }
+        public virtual User.User User { get; set; }
+
+        public virtual ICollection<OrderItem.OrderItem> OrderItems { get; set; }
     }
 }

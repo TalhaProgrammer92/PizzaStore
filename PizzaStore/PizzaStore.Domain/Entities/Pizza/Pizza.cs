@@ -1,5 +1,4 @@
-﻿using PizzaStore.Domain.Entities.PizzaVariety;
-using PizzaStore.Domain.Enums;
+﻿using PizzaStore.Domain.Enums;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -20,8 +19,10 @@ namespace PizzaStore.Domain.Entities.Pizza
         public Guid PizzaVarietyId { get; set; }
 
         [Required]
-        public PizzaVariety.PizzaVariety PizzaVariety { get; set; }
+        public virtual PizzaVariety.PizzaVariety PizzaVariety { get; set; }
 
         public string? Description { get; set; }
+
+        public virtual ICollection<OrderItem.OrderItem> OrderItems { get; set; }
     }
 }

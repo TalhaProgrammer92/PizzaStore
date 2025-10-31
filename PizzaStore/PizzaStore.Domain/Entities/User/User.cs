@@ -14,7 +14,7 @@ namespace PizzaStore.Domain.Entities.User
         [Required]
         public Role Role { get; set; } // e.g., "Customer", "Admin"
 
-        public ICollection<Order.Order> Orders { get; set; }
-        public ICollection<Feedback.Feedback> Feedbacks { get; set; }
+        public virtual ICollection<Order.Order> Orders { get; set; }
+        public virtual ICollection<Feedback.Feedback> Feedbacks { get; set; }
     }
 }
