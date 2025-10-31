@@ -32,10 +32,6 @@ Thumbs.db
 ehthumbs.db
 Desktop.ini
 
-# JetBrains Rider
-.idea/
-*.iml
-
 # NuGet Packages
 *.nupkg
 # NuGet Package Cache
@@ -60,23 +56,9 @@ TestResults/
 *.coverage
 *.coveragexml
 
-# ASP.NET & IIS (in case you add API later)
-*.publishsettings
-App_Data/
-App_Data/*
-
-# Configuration files with secrets (keep base config)
-appsettings.Development.json
-appsettings.Local.json
-appsettings.Production.json
-
 # Resharper
 _ReSharper*/
 *.[Rr]e[Ss]harper
-
-# Rider
-.idea/
-*.sln.iml
 
 # Others
 *.dbmdl
@@ -86,7 +68,6 @@ _ReSharper*/
 *.log
 *.vspscc
 *.vssscc
-desktop.ini
 .github
 *.zip
 *.rar
@@ -112,17 +93,6 @@ bld/
 # Temporary key files
 *.snk
 *.pfx
-
-# SQLite / Local DB files (optional, if you use localdb keep it ignored)
-*.mdf
-*.ldf
-
-# Rider and JetBrains IDE settings
-.idea/
-*.sln.iml
-
-# Ignore secrets.json (if used for development secrets)
-secrets.json
 
 # Logs and crash dumps
 *.log
