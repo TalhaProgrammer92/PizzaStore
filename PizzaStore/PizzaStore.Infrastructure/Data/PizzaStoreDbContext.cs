@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using PizzaStore.Domain.Entities.Feedback;
 using PizzaStore.Domain.Entities.Order;
 using PizzaStore.Domain.Entities.Pizza;
 using PizzaStore.Domain.Entities.PizzaVariety;
@@ -15,6 +16,7 @@ namespace PizzaStore.Infrastructure.Data
         public DbSet<Pizza> Pizzas { get; set; }
         public DbSet<Order> Orders { get; set; }
         public DbSet<PizzaVariety> PizzaVarieties { get; set; }
+        public DbSet<Feedback> Feedbacks { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -27,6 +29,18 @@ namespace PizzaStore.Infrastructure.Data
                 .HasOne(p => p.PizzaVariety)
                 .WithMany(pv => pv.Pizzas)
                 .HasForeignKey(p => p.PizzaVarietyId);
+
+            // Order - Configuration
+            modelBuilder.Entity<Order>()
+                .HasOne(o => o.User)
+                .WithMany(u => u.Orders)
+                .HasForeignKey(o => o.UserId);
+
+            // Feedback - Configuration
+            modelBuilder.Entity<Feedback>()
+                .HasOne(f => f.User)
+                .WithMany(u => u.Feedbacks)
+                .HasForeignKey(f => f.UserId);
         }
     }
 }

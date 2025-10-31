@@ -1,8 +1,10 @@
 ﻿using AutoMapper;
+using PizzaStore.ApplicationCore.DTOs.FeedbackDTO;
 using PizzaStore.ApplicationCore.DTOs.OrderDTO;
 using PizzaStore.ApplicationCore.DTOs.PizzaDTO;
 using PizzaStore.ApplicationCore.DTOs.PizzaVarietyDTO;
 using PizzaStore.ApplicationCore.DTOs.UserDTO;
+using PizzaStore.Domain.Entities.Feedback;
 using PizzaStore.Domain.Entities.Order;
 using PizzaStore.Domain.Entities.Pizza;
 using PizzaStore.Domain.Entities.PizzaVariety;
@@ -24,6 +26,8 @@ namespace PizzaStore.Infrastructure.Mapping
 
             CreateMap<User, UserDto>().ReverseMap()
                 .ForMember(dest => dest.Role, opt => opt.MapFrom(src => src.Role.ToString()));
+
+            CreateMap<Feedback, FeedbackDto>().ReverseMap();
         }
     }
 }

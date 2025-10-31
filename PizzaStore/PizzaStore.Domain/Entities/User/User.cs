@@ -13,5 +13,8 @@ namespace PizzaStore.Domain.Entities.User
         public string Email { get; set; }
         [Required]
         public Role Role { get; set; } // e.g., "Customer", "Admin"
+
+        public ICollection<Order.Order> Orders { get; set; }
+        public ICollection<Feedback.Feedback> Feedbacks { get; set; }
     }
 }
