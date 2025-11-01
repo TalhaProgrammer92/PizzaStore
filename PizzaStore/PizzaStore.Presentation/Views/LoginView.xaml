@@ -156,7 +156,7 @@
                          Text="{Binding Username, UpdateSourceTrigger=PropertyChanged}" />
 
                 <!-- Password -->
-                <TextBlock Text="Password" FontSize="12" Foreground="#FF6B6B6B" Margin="8,8,0,4"/>
+                <TextBlock Text="Password" FontSize="12" Foreground="#FF6B6B6B" Margin="2,0,0,4"/>
                 <PasswordBox Style="{StaticResource PasswordBoxRounded}" helpers:PasswordBoxHelper.BoundPassword="{Binding Password, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
 
                 <!-- Actions -->
