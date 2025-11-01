@@ -1,4 +1,5 @@
 ﻿using PizzaStore.Domain.Enums;
+using System.Collections;
 using System.ComponentModel.DataAnnotations;
 
 namespace PizzaStore.Domain.Entities.User
@@ -16,5 +17,6 @@ namespace PizzaStore.Domain.Entities.User
 
         public virtual ICollection<Order.Order> Orders { get; set; }
         public virtual ICollection<Feedback.Feedback> Feedbacks { get; set; }
+        public virtual ICollection<Cart.Cart> Carts { get; set; }
     }
 }

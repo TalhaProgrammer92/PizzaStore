@@ -1,4 +1,6 @@
 ﻿using AutoMapper;
+using PizzaStore.ApplicationCore.DTOs.CartDTO;
+using PizzaStore.ApplicationCore.DTOs.CartItemDTO;
 using PizzaStore.ApplicationCore.DTOs.FeedbackDTO;
 using PizzaStore.ApplicationCore.DTOs.OrderDTO;
 using PizzaStore.ApplicationCore.DTOs.OrderItemDTO;
@@ -6,6 +8,8 @@ using PizzaStore.ApplicationCore.DTOs.PaymentDTO;
 using PizzaStore.ApplicationCore.DTOs.PizzaDTO;
 using PizzaStore.ApplicationCore.DTOs.PizzaVarietyDTO;
 using PizzaStore.ApplicationCore.DTOs.UserDTO;
+using PizzaStore.Domain.Entities.Cart;
+using PizzaStore.Domain.Entities.CartItem;
 using PizzaStore.Domain.Entities.Feedback;
 using PizzaStore.Domain.Entities.Order;
 using PizzaStore.Domain.Entities.OrderItem;
@@ -33,6 +37,10 @@ namespace PizzaStore.Infrastructure.Mapping
             CreateMap<Payment, PaymentDto>().ReverseMap()
                 .ForMember(dest => dest.PaymentMethod,
                     opt => opt.MapFrom(src => src.PaymentMethod.ToString()));
+
+            CreateMap<Cart, CartDto>().ReverseMap();
+
+            CreateMap<CartItem, CartItemDto>().ReverseMap();
 
             CreateMap<User, UserDto>().ReverseMap()
                 .ForMember(dest => dest.Role, opt => opt.MapFrom(src => src.Role.ToString()));

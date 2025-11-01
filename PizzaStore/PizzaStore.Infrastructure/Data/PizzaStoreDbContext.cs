@@ -1,4 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using PizzaStore.Domain.Entities.Cart;
+using PizzaStore.Domain.Entities.CartItem;
 using PizzaStore.Domain.Entities.Feedback;
 using PizzaStore.Domain.Entities.Order;
 using PizzaStore.Domain.Entities.OrderItem;
@@ -15,11 +17,13 @@ namespace PizzaStore.Infrastructure.Data
 
         /* <---- DbSet Properties ----> */
         public DbSet<User> Users { get; set; }
+        public DbSet<Feedback> Feedbacks { get; set; }
         public DbSet<Pizza> Pizzas { get; set; }
+        public DbSet<PizzaVariety> PizzaVarieties { get; set; }
         public DbSet<Order> Orders { get; set; }
         public DbSet<OrderItem> OrderItems { get; set; }
-        public DbSet<PizzaVariety> PizzaVarieties { get; set; }
-        public DbSet<Feedback> Feedbacks { get; set; }
+        public DbSet<Cart> Carts { get; set; }
+        public DbSet<CartItem> CartItems { get; set; }
         public DbSet<Payment> Payments { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -27,6 +31,12 @@ namespace PizzaStore.Infrastructure.Data
             // User - Configuration
             modelBuilder.Entity<User>()
                 .HasIndex(u => u.Username).IsUnique();
+
+            // Feedback - Configuration
+            modelBuilder.Entity<Feedback>()
+                .HasOne(f => f.User)
+                .WithMany(u => u.Feedbacks)
+                .HasForeignKey(f => f.UserId);
 
             // Pizza - Configuration
             modelBuilder.Entity<Pizza>()
@@ -50,18 +60,29 @@ namespace PizzaStore.Infrastructure.Data
                 .HasOne(oi => oi.Pizza)
                 .WithMany(p => p.OrderItems)
                 .HasForeignKey(oi => oi.PizzaId);
-            
+
+            // Cart - Configuration
+            modelBuilder.Entity<Cart>()
+                .HasOne(c => c.User)
+                .WithMany(u => u.Carts)
+                .HasForeignKey(c => c.UserId);
+
+            // CartItem - Configuration
+            modelBuilder.Entity<CartItem>()
+                .HasOne(ci => ci.Cart)
+                .WithMany(c => c.CartItems)
+                .HasForeignKey(ci => ci.CartId);
+
+            modelBuilder.Entity<CartItem>()
+                .HasOne(ci => ci.Pizza)
+                .WithMany(p => p.CartItems)
+                .HasForeignKey(ci => ci.PizzaId);
+
             // Payment - Configuration
             modelBuilder.Entity<Payment>()
                 .HasOne(oi => oi.Order)
                 .WithMany(o => o.Payments)
                 .HasForeignKey(oi => oi.OrderId);
-
-            // Feedback - Configuration
-            modelBuilder.Entity<Feedback>()
-                .HasOne(f => f.User)
-                .WithMany(u => u.Feedbacks)
-                .HasForeignKey(f => f.UserId);
         }
     }
 }

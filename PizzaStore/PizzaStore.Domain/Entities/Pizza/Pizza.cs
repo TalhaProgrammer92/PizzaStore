@@ -14,6 +14,7 @@ namespace PizzaStore.Domain.Entities.Pizza
 
         [Required]
         public Size Size { get; set; }
+        public string? Description { get; set; }
 
         [Required]
         public Guid PizzaVarietyId { get; set; }
@@ -21,8 +22,7 @@ namespace PizzaStore.Domain.Entities.Pizza
         [Required]
         public virtual PizzaVariety.PizzaVariety PizzaVariety { get; set; }
 
-        public string? Description { get; set; }
-
         public virtual ICollection<OrderItem.OrderItem> OrderItems { get; set; }
+        public virtual ICollection<CartItem.CartItem> CartItems { get; set; }
     }
 }
