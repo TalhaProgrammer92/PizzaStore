@@ -12,10 +12,10 @@ namespace PizzaStore.Domain.Entities.OrderItem
 
         [Required]
         public Guid OrderId { get; set; }
-        public virtual Order.Order Order { get; set; }
+        public Order.Order Order { get; set; }
 
         [Required]
         public Guid PizzaId { get; set; }
-        public virtual Pizza.Pizza Pizza { get; set; }
+        public Pizza.Pizza Pizza { get; set; }
     }
 }

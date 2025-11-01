@@ -8,13 +8,13 @@ namespace PizzaStore.Domain.Entities.CartItem
         public Guid CartId { get; set; }
         
         [Required]
-        public virtual Cart.Cart Cart { get; set; }
+        public Cart.Cart Cart { get; set; }
         
         [Required]
         public Guid PizzaId { get; set; }
         
         [Required]
-        public virtual Pizza.Pizza Pizza { get; set; }
+        public Pizza.Pizza Pizza { get; set; }
 
         public int Quantity { get; set; }
     }

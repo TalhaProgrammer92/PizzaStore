@@ -13,9 +13,9 @@ namespace PizzaStore.Domain.Entities.Order
         public Guid UserId { get; set; }
         
         [Required]
-        public virtual User.User User { get; set; }
+        public User.User User { get; set; }
 
-        public virtual ICollection<OrderItem.OrderItem> OrderItems { get; set; }
-        public virtual ICollection<Payment.Payment> Payments { get; set; }
+        public ICollection<OrderItem.OrderItem> OrderItems { get; set; }
+        public ICollection<Payment.Payment> Payments { get; set; }
     }
 }

@@ -8,8 +8,8 @@ namespace PizzaStore.Domain.Entities.Cart
         public Guid UserId { get; set; }
         
         [Required]
-        public virtual User.User User { get; set; }
+        public User.User User { get; set; }
 
-        public virtual ICollection<CartItem.CartItem> CartItems { get; set; }
+        public ICollection<CartItem.CartItem> CartItems { get; set; }
     }
 }

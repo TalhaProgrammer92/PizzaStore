@@ -7,7 +7,7 @@ namespace PizzaStore.Domain.Entities.Feedback
         [Required]
         public Guid UserId { get; set; }
         [Required]
-        public virtual User.User User { get; set; }
+        public User.User User { get; set; }
 
         [Required]
         public string Description { get; set; }

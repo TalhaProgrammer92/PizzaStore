@@ -9,6 +9,6 @@ namespace PizzaStore.Domain.Entities.PizzaVariety
 
         //public Size? Size { get; set; }
 
-        public virtual ICollection<Pizza.Pizza> Pizzas { get; set; }
+        public ICollection<Pizza.Pizza> Pizzas { get; set; }
     }
 }

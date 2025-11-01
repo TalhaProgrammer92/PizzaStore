@@ -15,7 +15,7 @@ public class Payment : EntityBase
     [Required]
     public Guid OrderId { get; set; }
     [Required]
-    public virtual Order.Order Order {
+    public Order.Order Order {
         get;
         set;
     }

@@ -20,9 +20,9 @@ namespace PizzaStore.Domain.Entities.Pizza
         public Guid PizzaVarietyId { get; set; }
 
         [Required]
-        public virtual PizzaVariety.PizzaVariety PizzaVariety { get; set; }
+        public PizzaVariety.PizzaVariety PizzaVariety { get; set; }
 
-        public virtual ICollection<OrderItem.OrderItem> OrderItems { get; set; }
-        public virtual ICollection<CartItem.CartItem> CartItems { get; set; }
+        public ICollection<OrderItem.OrderItem> OrderItems { get; set; }
+        public ICollection<CartItem.CartItem> CartItems { get; set; }
     }
 }
