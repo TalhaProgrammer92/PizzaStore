@@ -16,11 +16,6 @@
 # Visual Studio 2019/2022
 .vs/
 
-# JetBrains Rider
-.idea/
-*.iml
-*.sln.iml
-
 # Backup & autosave files
 *~ 
 *.bak
