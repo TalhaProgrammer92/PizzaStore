@@ -1,6 +1,8 @@
-﻿namespace PizzaStore.ApplicationCore.Interfaces.Repositories;
+﻿using PizzaStore.Domain.Entities.Payment;
 
-public interface IPaymentRepository
+namespace PizzaStore.ApplicationCore.Interfaces.Repositories;
+
+public interface IPaymentRepository : IGeneralRepository<Payment>
 {
     
 }

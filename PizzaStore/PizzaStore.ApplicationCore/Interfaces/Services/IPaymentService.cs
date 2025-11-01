@@ -1,6 +1,8 @@
-﻿namespace PizzaStore.ApplicationCore.Interfaces.Services;
+﻿using PizzaStore.ApplicationCore.DTOs.PaymentDTO;
 
-public interface IPaymentService
+namespace PizzaStore.ApplicationCore.Interfaces.Services;
+
+public interface IPaymentService : IGeneralService<PaymentDto>
 {
     
 }

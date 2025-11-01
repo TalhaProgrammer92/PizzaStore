@@ -2,6 +2,7 @@
 using PizzaStore.Domain.Entities.Feedback;
 using PizzaStore.Domain.Entities.Order;
 using PizzaStore.Domain.Entities.OrderItem;
+using PizzaStore.Domain.Entities.Payment;
 using PizzaStore.Domain.Entities.Pizza;
 using PizzaStore.Domain.Entities.PizzaVariety;
 using PizzaStore.Domain.Entities.User;
@@ -19,6 +20,7 @@ namespace PizzaStore.Infrastructure.Data
         public DbSet<OrderItem> OrderItems { get; set; }
         public DbSet<PizzaVariety> PizzaVarieties { get; set; }
         public DbSet<Feedback> Feedbacks { get; set; }
+        public DbSet<Payment> Payments { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -48,6 +50,12 @@ namespace PizzaStore.Infrastructure.Data
                 .HasOne(oi => oi.Pizza)
                 .WithMany(p => p.OrderItems)
                 .HasForeignKey(oi => oi.PizzaId);
+            
+            // Payment - Configuration
+            modelBuilder.Entity<Payment>()
+                .HasOne(oi => oi.Order)
+                .WithMany(o => o.Payments)
+                .HasForeignKey(oi => oi.OrderId);
 
             // Feedback - Configuration
             modelBuilder.Entity<Feedback>()

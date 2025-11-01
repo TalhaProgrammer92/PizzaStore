@@ -16,5 +16,6 @@ namespace PizzaStore.Domain.Entities.Order
         public virtual User.User User { get; set; }
 
         public virtual ICollection<OrderItem.OrderItem> OrderItems { get; set; }
+        public virtual ICollection<Payment.Payment> Payments { get; set; }
     }
 }
