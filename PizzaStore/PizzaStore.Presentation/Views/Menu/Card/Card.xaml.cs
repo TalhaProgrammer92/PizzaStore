@@ -10,16 +10,17 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace PizzaStore.Presentation.Views
+namespace PizzaStore.Presentation.Views.Menu.Card
 {
     /// <summary>
-    /// Interaction logic for MainWindowView.xaml
+    /// Interaction logic for Card.xaml
     /// </summary>
-    public partial class MainWindowView : Window
+    public partial class Card : Page
     {
-        public MainWindowView()
+        public Card()
         {
             InitializeComponent();
         }
