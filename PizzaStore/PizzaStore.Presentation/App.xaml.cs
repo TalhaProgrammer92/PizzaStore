@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using MaterialDesignThemes.Wpf;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -23,9 +24,28 @@ namespace PizzaStore.Presentation
     {
         private IHost? _host;
 
+        //public App()
+        //{
+        //    // Loading theme manually
+        //    var paletteHelper = new PaletteHelper();
+        //    var theme = paletteHelper.GetTheme();
+        //    theme.SetPrimaryColor(System.Windows.Media.Colors.OrangeRed);
+        //    theme.SetSecondaryColor(System.Windows.Media.Colors.LimeGreen);
+        //    paletteHelper.SetTheme(theme);
+        //}
+
         protected override async void OnStartup(StartupEventArgs e)
         {
             base.OnStartup(e);
+
+            // Loading theme manually
+            //var paletteHelper = new PaletteHelper();
+            //var theme = paletteHelper.GetTheme();
+
+            //theme.SetPrimaryColor(System.Windows.Media.Colors.OrangeRed);
+            //theme.SetSecondaryColor(System.Windows.Media.Colors.Red);
+
+            //paletteHelper.SetTheme(theme);
 
             _host = Host.CreateDefaultBuilder()
                 .ConfigureAppConfiguration((context, config) =>
