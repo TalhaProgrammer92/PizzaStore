@@ -15,7 +15,11 @@ namespace PizzaStore.Presentation
 
         private void RadioButton_Checked(object sender, RoutedEventArgs e)
         {
-            MainFrame.Content = new ManagePizzasView();
+            //var context = new PizzaStoreDbContext();
+            //var viewModel = new ManagePizzasViewModel(context);
+            //MainFrame.Content = new ManagePizzasView(viewModel);
+            var view = App.Current.Services.GetRequiredService<ManagePizzasView>();
+            MainFrame.Content = view;
         }
-}
+    }
 }

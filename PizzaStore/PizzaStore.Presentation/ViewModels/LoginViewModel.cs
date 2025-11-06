@@ -65,7 +65,7 @@ namespace PizzaStore.Presentation.ViewModels
             mainWindow.Show();
 
             // Close the login window
-            Application.Current.Windows
+            System.Windows.Application.Current.Windows
                 .OfType<Window>()
                 .FirstOrDefault(w => w.DataContext == this)?
                 .Close();

@@ -29,10 +29,19 @@
 
                 <ComboBox Width="200"
                           Margin="5"
+                          materialDesign:HintAssist.Hint="Select Pizza Variety"
+                          ItemsSource="{Binding PizzaVarieties}"
+                          SelectedItem="{Binding SelectedVariety, Mode=TwoWay}"
+                          DisplayMemberPath="Name"
+                          SelectedValuePath="Id"></ComboBox>
+
+                <ComboBox Width="200"
+                          Margin="5"
                           materialDesign:HintAssist.Hint="Select Size">
                     <ComboBoxItem Content="Small"/>
                     <ComboBoxItem Content="Medium"/>
                     <ComboBoxItem Content="Large"/>
+                    <ComboBoxItem Content="Extra Large"/>
                 </ComboBox>
 
                 <TextBox Width="150"

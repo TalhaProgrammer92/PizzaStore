@@ -12,7 +12,9 @@ using PizzaStore.Infrastructure.Mapping;
 using PizzaStore.Infrastructure.Repositories;
 using PizzaStore.Infrastructure.Services;
 using PizzaStore.Presentation.ViewModels;
+using PizzaStore.Presentation.ViewModels.ManagePizzas;
 using PizzaStore.Presentation.Views;
+using PizzaStore.Presentation.Views.ManagePizzas;
 using System.Windows;
 
 namespace PizzaStore.Presentation
@@ -20,32 +22,13 @@ namespace PizzaStore.Presentation
     /// <summary>
     /// Interaction logic for App.xaml
     /// </summary>
-    public partial class App : Application
+    public partial class App : System.Windows.Application
     {
         private IHost? _host;
-
-        //public App()
-        //{
-        //    // Loading theme manually
-        //    var paletteHelper = new PaletteHelper();
-        //    var theme = paletteHelper.GetTheme();
-        //    theme.SetPrimaryColor(System.Windows.Media.Colors.OrangeRed);
-        //    theme.SetSecondaryColor(System.Windows.Media.Colors.LimeGreen);
-        //    paletteHelper.SetTheme(theme);
-        //}
 
         protected override async void OnStartup(StartupEventArgs e)
         {
             base.OnStartup(e);
-
-            // Loading theme manually
-            //var paletteHelper = new PaletteHelper();
-            //var theme = paletteHelper.GetTheme();
-
-            //theme.SetPrimaryColor(System.Windows.Media.Colors.OrangeRed);
-            //theme.SetSecondaryColor(System.Windows.Media.Colors.Red);
-
-            //paletteHelper.SetTheme(theme);
 
             _host = Host.CreateDefaultBuilder()
                 .ConfigureAppConfiguration((context, config) =>
@@ -75,10 +58,12 @@ namespace PizzaStore.Presentation
                     // ViewModels & Views
                     services.AddTransient<LoginViewModel>();
                     services.AddTransient<MainWindowViewModel>();
+                    services.AddTransient<ManagePizzasViewModel>();
                     services.AddSingleton<MainWindow>();
 
                     services.AddTransient<LoginView>();
                     services.AddTransient<MainWindow>();
+                    services.AddTransient<ManagePizzasView>();
                 })
                 .Build();
 
@@ -89,6 +74,7 @@ namespace PizzaStore.Presentation
             var window = _host.Services.GetRequiredService<LoginView>();
             window.Show();
         }
+        public static IServiceProvider Services => ((App)Current)._host!.Services;
 
         protected override async void OnExit(ExitEventArgs e)
         {
