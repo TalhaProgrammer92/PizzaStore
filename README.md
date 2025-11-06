@@ -115,7 +115,7 @@ The tokens are generated and validated within the app using local logic (no exte
 
 ## 📸 Screenshots
 
-#### 👤 Login UI
+### 👤 Login UI
 I tranformed the login UI from old fashion to a cool modern look. There's two active accounts in my database:
 
 | Username | Password | Role |
@@ -127,12 +127,23 @@ The login UI now looks like this:
 
 ![Login Window](/Screenshots/Login%20Window/Login%20window%20-%20ui.png)
 
-#### 🎨 Main Window UI
+### 🎨 Main Window UI - Dashboard
 I created a modern and clean UI of the main window using only XAML, without replying on any third-party libraries/tools. You can take a look:
 
 ![Main Window](/Screenshots/Main%20Window/Main%20Window%20-%20UI%20v3.png)
 
 It can be polished even further and I'll add more components like graphs, cards, cart, filters, etc. and all related features for each section.
+
+### 🍕 Manage Pizzas UI
+I created a UserControl for the ManagePizzas section so that admin can perform CRUD operations with Pizza entities with the database. Here's a look:
+
+![Manage Pizzas](/Screenshots/Manage%20Pizzas/Manage%20Pizzas%20-%20First%20look%20-%20UI.png)
+
+The UI is simple, just insert data about the pizza and perform CRUD using buttons below. There are two special feature buttons:
+
+1. **Filter Pizzas:** It's used to filter the list of pizzas depending on variety, size and price.
+
+2. **Pizza Varieties Manager:** It's used to perform CRUD with pizza varieties so that these can be shown in the ComboBox items list of the PizzaVariety ComboBox.
 
 ---
 

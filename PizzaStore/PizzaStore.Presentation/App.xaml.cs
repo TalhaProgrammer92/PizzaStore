@@ -1,5 +1,4 @@
-﻿using MaterialDesignThemes.Wpf;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -22,7 +21,7 @@ namespace PizzaStore.Presentation
     /// <summary>
     /// Interaction logic for App.xaml
     /// </summary>
-    public partial class App : System.Windows.Application
+    public partial class App : Application
     {
         private IHost? _host;
 
@@ -74,6 +73,7 @@ namespace PizzaStore.Presentation
             var window = _host.Services.GetRequiredService<LoginView>();
             window.Show();
         }
+
         public static IServiceProvider Services => ((App)Current)._host!.Services;
 
         protected override async void OnExit(ExitEventArgs e)

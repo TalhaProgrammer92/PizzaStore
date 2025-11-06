@@ -16,28 +16,28 @@
 
         <!-- Title -->
         <TextBlock Text="Manage Pizzas"
-                   FontSize="24"
+                   FontSize="26"
                    FontWeight="Bold"
                    Foreground="{DynamicResource PrimaryHueMidBrush}" />
 
         <!-- Pizza Form -->
         <StackPanel Grid.Row="1" Margin="0,20,0,0" Orientation="Vertical" VerticalAlignment="Top">
             <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
-                <TextBox Width="200"
-                         Margin="5"
-                         materialDesign:HintAssist.Hint="Pizza Name" />
+                <TextBox Width="150"
+                        Margin="5"
+                        materialDesign:HintAssist.Hint="Pizza Name" />
 
-                <ComboBox Width="200"
-                          Margin="5"
-                          materialDesign:HintAssist.Hint="Select Pizza Variety"
-                          ItemsSource="{Binding PizzaVarieties}"
-                          SelectedItem="{Binding SelectedVariety, Mode=TwoWay}"
-                          DisplayMemberPath="Name"
-                          SelectedValuePath="Id"></ComboBox>
+                <ComboBox Width="150"
+                        Margin="5"
+                        materialDesign:HintAssist.Hint="Select Pizza Variety"
+                        ItemsSource="{Binding PizzaVarieties}"
+                        SelectedItem="{Binding SelectedVariety, Mode=TwoWay}"
+                        DisplayMemberPath="Name"
+                        SelectedValuePath="Id"></ComboBox>
 
-                <ComboBox Width="200"
-                          Margin="5"
-                          materialDesign:HintAssist.Hint="Select Size">
+                <ComboBox Width="150"
+                        Margin="5"
+                        materialDesign:HintAssist.Hint="Select Size">
                     <ComboBoxItem Content="Small"/>
                     <ComboBoxItem Content="Medium"/>
                     <ComboBoxItem Content="Large"/>
@@ -45,19 +45,36 @@
                 </ComboBox>
 
                 <TextBox Width="150"
-                         Margin="5"
-                         materialDesign:HintAssist.Hint="Price" />
+                        Margin="5"
+                        materialDesign:HintAssist.Hint="Price"/>
             </StackPanel>
 
+            <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
+                <TextBox Width="400"
+                        Margin="5"
+                        materialDesign:HintAssist.Hint="Description"/>
+
+                <TextBox Width="150"
+                        Margin="5"
+                        materialDesign:HintAssist.Hint="Image URL"/>
+            </StackPanel>   
+
             <StackPanel Orientation="Horizontal" Margin="0,0,0,20">
-                <Button Content="Add Pizza"
+                <Button Content="➕ Add Pizza"
                         Style="{StaticResource MaterialDesignRaisedButton}"
                         Margin="5"/>
-                <Button Content="Update Pizza"
+                <Button Content="🔼 Update Pizza"
                         Style="{StaticResource MaterialDesignOutlinedButton}"
                         Margin="5"/>
-                <Button Content="Delete Pizza"
+                <Button Content="❌ Delete Pizza"
                         Style="{StaticResource MaterialDesignOutlinedButton}"
+                        Margin="5"/>
+
+                <Button Content="⧩ Filter Pizzas"
+                        Style="{StaticResource MaterialDesignFlatDarkBgButton}"
+                        Margin="5"/>
+                <Button Content="🍕 Pizza Varieties Manager"
+                        Style="{StaticResource MaterialDesignFlatSecondaryDarkBgButton}"
                         Margin="5"/>
             </StackPanel>
 
@@ -65,13 +82,16 @@
             <DataGrid AutoGenerateColumns="False"
                       CanUserAddRows="False"
                       Margin="0,10,0,0"
+                      Foreground="WhiteSmoke"
+                      Background="OrangeRed"
                       materialDesign:DataGridAssist.CellPadding="8"
                       materialDesign:DataGridAssist.ColumnHeaderPadding="10">
                 <DataGrid.Columns>
-                    <DataGridTextColumn Header="ID" Binding="{Binding Id}" Width="Auto"/>
+                    <DataGridTextColumn Header="ID" Binding="{Binding Id}" Width="*"/>
                     <DataGridTextColumn Header="Name" Binding="{Binding Name}" Width="*"/>
-                    <DataGridTextColumn Header="Size" Binding="{Binding Size}" Width="Auto"/>
-                    <DataGridTextColumn Header="Price" Binding="{Binding Price}" Width="Auto"/>
+                    <DataGridTextColumn Header="Variety" Binding="{Binding Variety.Name}" Width="*"/>
+                    <DataGridTextColumn Header="Size" Binding="{Binding Size}" Width="*"/>
+                    <DataGridTextColumn Header="Price" Binding="{Binding Price}" Width="*"/>
                 </DataGrid.Columns>
             </DataGrid>
         </StackPanel>
