@@ -41,13 +41,6 @@ namespace PizzaStore.Presentation.ViewModels.ManagePizzas
             set => SetProperty(ref _selectedSize, value);
         }
 
-        private string? _description;
-        public string? Description
-        {
-            get => _description;
-            set => SetProperty(ref _description, value);
-        }
-
         private string? _imageUrl;
         public string? ImageUrl
         {
@@ -70,12 +63,15 @@ namespace PizzaStore.Presentation.ViewModels.ManagePizzas
         {
             _pizzaVarietyService = varietyService;
             _pizzaService = pizzaService;
-
-            AddPizzaCommand = new RelayCommand(async _ => await AddPizzaAsync(), _ => CanAddPizza());
-
             _context = context;
+
+            AddPizzaCommand = new RelayCommand(async _ => await AddPizzaAsync(), _ => true);
+
             PizzaVarieties = new ObservableCollection<PizzaVariety>();
+            PizzaDtos = new ObservableCollection<PizzaDto>();
+
             LoadVarietiesAsync().ConfigureAwait(false);
+            LoadAllPizzasAsync().ConfigureAwait(false);
         }
 
         private async Task LoadVarietiesAsync()
@@ -91,7 +87,8 @@ namespace PizzaStore.Presentation.ViewModels.ManagePizzas
         private bool CanAddPizza()
         {
             return SelectedVariety != null
-                && !string.IsNullOrWhiteSpace(SelectedSize)
+                && SelectedSize != null
+                && !string.IsNullOrWhiteSpace(ImageUrl)
                 && PizzaPrice > 0;
         }
 
@@ -101,7 +98,7 @@ namespace PizzaStore.Presentation.ViewModels.ManagePizzas
             var dto = new PizzaDto
             {
                 Id = Guid.NewGuid(),
-                Description = this.Description!,
+                Description = PizzaDescription,
                 Size = SelectedSize!,
                 PizzaVarietyId = SelectedVariety!.Id,
                 Price = PizzaPrice,
@@ -131,7 +128,7 @@ namespace PizzaStore.Presentation.ViewModels.ManagePizzas
             SelectedVariety = null;
             SelectedSize = null;
             PizzaPrice = 0;
-            Description = string.Empty;
+            PizzaDescription = string.Empty;
             ImageUrl = string.Empty;
         }
     }

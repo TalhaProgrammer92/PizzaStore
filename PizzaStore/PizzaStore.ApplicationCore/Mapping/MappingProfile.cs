@@ -17,6 +17,7 @@ using PizzaStore.Domain.Entities.Payment;
 using PizzaStore.Domain.Entities.Pizza;
 using PizzaStore.Domain.Entities.PizzaVariety;
 using PizzaStore.Domain.Entities.User;
+using PizzaStore.Domain.Enums;
 
 namespace PizzaStore.Infrastructure.Mapping
 {
@@ -25,8 +26,14 @@ namespace PizzaStore.Infrastructure.Mapping
         public MappingProfile()
         {
             /* <---- Mapping configurations ----> */
+            //CreateMap<Pizza, PizzaDto>()
+            //    .ForMember(dest => dest.Size, opt => opt.MapFrom(src => src.Size.ToString()));
+
             CreateMap<Pizza, PizzaDto>()
-                .ForMember(dest => dest.Size, opt => opt.MapFrom(src => src.Size.ToString()));
+                .ForMember(dest => dest.Size, opt => opt.MapFrom(src => src.Size.ToString()))
+                .ReverseMap()
+                .ForMember(dest => dest.Size, opt => opt.MapFrom(src => Enum.Parse<Size>(src.Size)));
+
 
             CreateMap<PizzaVariety, PizzaVarietyDto>().ReverseMap();
 

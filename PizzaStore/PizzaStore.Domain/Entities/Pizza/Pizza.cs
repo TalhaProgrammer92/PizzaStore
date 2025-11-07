@@ -6,8 +6,7 @@ namespace PizzaStore.Domain.Entities.Pizza
 {
     public class Pizza : EntityBase
     {
-        [Required]
-        public byte[] Image { get; set; }
+        public byte[]? Image { get; set; }
 
         [Column(TypeName = "decimal(18,2)")]
         public required decimal Price { get; set; }
