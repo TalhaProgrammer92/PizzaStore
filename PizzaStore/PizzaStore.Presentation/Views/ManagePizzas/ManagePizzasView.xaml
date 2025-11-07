@@ -13,6 +13,9 @@
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
 
         <!-- Title -->
         <TextBlock Text="Manage Pizzas"
@@ -23,10 +26,6 @@
         <!-- Pizza Form -->
         <StackPanel Grid.Row="1" Margin="0,20,0,0" Orientation="Vertical" VerticalAlignment="Top">
             <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
-                <TextBox Width="150"
-                        Margin="5"
-                        materialDesign:HintAssist.Hint="Pizza Name" />
-
                 <ComboBox Width="150"
                         Margin="5"
                         materialDesign:HintAssist.Hint="Select Pizza Variety"
@@ -37,7 +36,8 @@
 
                 <ComboBox Width="150"
                         Margin="5"
-                        materialDesign:HintAssist.Hint="Select Size">
+                        materialDesign:HintAssist.Hint="Select Size"
+                        SelectedItem="{Binding SelectedSice, Mode=TwoWay}">
                     <ComboBoxItem Content="Small"/>
                     <ComboBoxItem Content="Medium"/>
                     <ComboBoxItem Content="Large"/>
@@ -46,22 +46,26 @@
 
                 <TextBox Width="150"
                         Margin="5"
-                        materialDesign:HintAssist.Hint="Price"/>
+                        materialDesign:HintAssist.Hint="Price"
+                        Text="{Binding Price, UpdateSourceTrigger=PropertyChanged}"/>
+
+                <TextBox Width="400"
+                        Margin="5"
+                        materialDesign:HintAssist.Hint="Description"
+                        Text="{Binding Description, UpdateSourceTrigger=PropertyChanged}"/>
             </StackPanel>
 
             <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
-                <TextBox Width="400"
+                <TextBox Width="350"
                         Margin="5"
-                        materialDesign:HintAssist.Hint="Description"/>
-
-                <TextBox Width="150"
-                        Margin="5"
-                        materialDesign:HintAssist.Hint="Image URL"/>
+                        materialDesign:HintAssist.Hint="Image URL"
+                        Text="{Binding ImageURL, UpdateSourceTrigger=PropertyChanged}"/>
             </StackPanel>
 
             <StackPanel Orientation="Horizontal" Margin="0,0,0,20">
                 <Button Content="➕ Add Pizza"
                         Style="{StaticResource MaterialDesignRaisedButton}"
+                        Command="{Binding AddPizzaCommand}"
                         Margin="5"/>
                 <Button Content="🔼 Update Pizza"
                         Style="{StaticResource MaterialDesignOutlinedButton}"

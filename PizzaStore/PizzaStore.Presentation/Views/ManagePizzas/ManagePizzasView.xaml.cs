@@ -8,7 +8,7 @@ namespace PizzaStore.Presentation.Views.ManagePizzas
     /// </summary>
     public partial class ManagePizzasView : UserControl
     {
-        public ManagePizzasView(ManagePizzasViewModel viewModel)
+       public ManagePizzasView(ManagePizzasViewModel viewModel)
         {
             InitializeComponent();
             DataContext = viewModel;
