@@ -88,7 +88,6 @@ namespace PizzaStore.Presentation.ViewModels.ManagePizzas
         {
             return SelectedVariety != null
                 && SelectedSize != null
-                && !string.IsNullOrWhiteSpace(ImageUrl)
                 && PizzaPrice > 0;
         }
 

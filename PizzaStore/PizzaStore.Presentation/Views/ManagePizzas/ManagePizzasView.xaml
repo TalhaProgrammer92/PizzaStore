@@ -95,7 +95,7 @@
                       materialDesign:DataGridAssist.ColumnHeaderPadding="10">
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="ID" Binding="{Binding Id}" Width="*"/>
-                    <DataGridTextColumn Header="Variety" Binding="{Binding Variety.Name}" Width="*"/>
+                    <DataGridTextColumn Header="Variety" Binding="{Binding Variety}" Width="*"/>
                     <DataGridTextColumn Header="Size" Binding="{Binding Size}" Width="*"/>
                     <DataGridTextColumn Header="Price" Binding="{Binding Price}" Width="*"/>
                     <DataGridTextColumn Header="Description" Binding="{Binding Description}" Width="*"/>
