@@ -28,11 +28,12 @@
             <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
                 <ComboBox Width="150"
                         Margin="5"
-                        materialDesign:HintAssist.Hint="Select Pizza Variety"
+                        materialDesign:HintAssist.Hint="Select Variety"
                         ItemsSource="{Binding PizzaVarieties}"
                         SelectedItem="{Binding SelectedVariety, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                         DisplayMemberPath="Name"
-                        SelectedValuePath="Id"></ComboBox>
+                        SelectedValuePath="Id">
+                </ComboBox>
 
                 <ComboBox Width="150"
                       Margin="5"
@@ -79,9 +80,6 @@
                 <Button Content="⧩ Filter Pizzas"
                         Style="{StaticResource MaterialDesignFlatDarkBgButton}"
                         Margin="5"/>
-                <Button Content="🍕 Pizza Varieties Manager"
-                        Style="{StaticResource MaterialDesignFlatSecondaryDarkBgButton}"
-                        Margin="5"/>
             </StackPanel>
 
             <!-- DataGrid -->
@@ -94,7 +92,6 @@
                       materialDesign:DataGridAssist.CellPadding="8"
                       materialDesign:DataGridAssist.ColumnHeaderPadding="10">
                 <DataGrid.Columns>
-                    <DataGridTextColumn Header="ID" Binding="{Binding Id}" Width="*"/>
                     <DataGridTextColumn Header="Variety" Binding="{Binding PizzaVarietyName}" Width="*"/>
                     <DataGridTextColumn Header="Size" Binding="{Binding Size}" Width="*"/>
                     <DataGridTextColumn Header="Price" Binding="{Binding Price}" Width="*"/>

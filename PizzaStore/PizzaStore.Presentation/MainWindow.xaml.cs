@@ -14,9 +14,17 @@ namespace PizzaStore.Presentation
             InitializeComponent();
         }
 
-        private void RadioButton_Checked(object sender, RoutedEventArgs e)
+        // Open the Manage Pizzas view
+        private void ManagePizzas_Checked(object sender, RoutedEventArgs e)
         {
             var view = App.Services.GetRequiredService<ManagePizzasView>();
+            MainFrame.Content = view;
+        }
+
+        // Open the Manage Pizza Varieties view
+        private void ManagePizzaVarieties_Checked(object sender, RoutedEventArgs e)
+        {
+            var view = App.Services.GetRequiredService<ManagePizzasVarietyView>();
             MainFrame.Content = view;
         }
     }

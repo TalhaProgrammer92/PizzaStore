@@ -4,11 +4,11 @@ using System.Windows.Controls;
 namespace PizzaStore.Presentation.Views.ManagePizzas
 {
     /// <summary>
-    /// Interaction logic for ManagePizzasView.xaml
+    /// Interaction logic for ManagePizzasVarietyView.xaml
     /// </summary>
-    public partial class ManagePizzasView : UserControl
+    public partial class ManagePizzasVarietyView : UserControl
     {
-        public ManagePizzasView(ManagePizzasViewModel viewModel)
+        public ManagePizzasVarietyView(ManagePizzasVarietyViewModel viewModel)
         {
             InitializeComponent();
             DataContext = viewModel;

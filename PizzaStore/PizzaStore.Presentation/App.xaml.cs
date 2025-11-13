@@ -58,11 +58,13 @@ namespace PizzaStore.Presentation
                     services.AddTransient<LoginViewModel>();
                     services.AddTransient<MainWindowViewModel>();
                     services.AddTransient<ManagePizzasViewModel>();
+                    services.AddTransient<ManagePizzasVarietyViewModel>();
                     services.AddSingleton<MainWindow>();
 
                     services.AddTransient<LoginView>();
                     services.AddTransient<MainWindow>();
                     services.AddTransient<ManagePizzasView>();
+                    services.AddTransient<ManagePizzasVarietyView>();
                 })
                 .Build();
 

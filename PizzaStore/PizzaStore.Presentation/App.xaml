@@ -15,6 +15,10 @@
                 <ResourceDictionary Source="pack://application:,,,/MaterialDesignColors;component/Themes/Recommended/Secondary/MaterialDesignColor.Red.xaml" />
 
             </ResourceDictionary.MergedDictionaries>
+
+            <!-- Global ComboBox (PopUp) Style -->
+            <SolidColorBrush x:Key="MaterialDesignPopupBoxBackground" Color="White"/>
+            <SolidColorBrush x:Key="MaterialDesignPopupBoxForeground" Color="Black"/>
         </ResourceDictionary>
     </Application.Resources>
 </Application>

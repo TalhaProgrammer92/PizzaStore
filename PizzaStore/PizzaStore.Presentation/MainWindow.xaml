@@ -87,7 +87,8 @@
                                FontWeight="SemiBold"
                                Opacity="0.8"/>
                     <RadioButton Content="📊 Sales Overview" Style="{StaticResource NavButtonStyle}"/>
-                    <RadioButton Content="🍳 Manage Pizzas" Style="{StaticResource NavButtonStyle}" Checked="RadioButton_Checked"/>
+                    <RadioButton Content="🍳 Manage Pizzas" Style="{StaticResource NavButtonStyle}" Checked="ManagePizzas_Checked"/>
+                    <RadioButton Content="⚙ Manage Varieties" Style="{StaticResource NavButtonStyle}" Checked="ManagePizzaVarieties_Checked"/>
                     <RadioButton Content="🧾 Manage Orders" Style="{StaticResource NavButtonStyle}"/>
                     <RadioButton Content="👥 Manage Users" Style="{StaticResource NavButtonStyle}"/>
 

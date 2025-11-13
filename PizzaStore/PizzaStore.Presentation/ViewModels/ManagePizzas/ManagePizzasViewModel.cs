@@ -18,7 +18,7 @@ namespace PizzaStore.Presentation.ViewModels.ManagePizzas
 
         public ObservableCollection<PizzaVariety> PizzaVarieties { get; set; }
         public ObservableCollection<PizzaDto> PizzaDtos { get; set; }
-        
+
         // Pizza Form - Properties
         private decimal _pizzaPrice;
         public decimal PizzaPrice
@@ -65,13 +65,15 @@ namespace PizzaStore.Presentation.ViewModels.ManagePizzas
             _pizzaService = pizzaService;
             _context = context;
 
-            AddPizzaCommand = new RelayCommand(async _ => await AddPizzaAsync(), _ => true);
+            AddPizzaCommand = new RelayCommand(async _ => await AddPizzaAsync());
 
             PizzaVarieties = new ObservableCollection<PizzaVariety>();
             PizzaDtos = new ObservableCollection<PizzaDto>();
 
             LoadVarietiesAsync().ConfigureAwait(false);
             LoadAllPizzasAsync().ConfigureAwait(false);
+
+            ClearForm();
         }
 
         private async Task LoadVarietiesAsync()
@@ -114,7 +116,7 @@ namespace PizzaStore.Presentation.ViewModels.ManagePizzas
             // Clear form
             ClearForm();
         }
-
+    
         private async Task LoadAllPizzasAsync()
         {
             var list = await _pizzaService.GetAllAsync();
