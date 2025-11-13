@@ -10,5 +10,6 @@ namespace PizzaStore.ApplicationCore.DTOs.PizzaDTO
         public string? ImageUrl { get; set; } = string.Empty;
 
         public Guid PizzaVarietyId { get; set; }
+        public string? PizzaVarietyName { get; set; }
     }
 }

@@ -89,13 +89,13 @@
                       AutoGenerateColumns="False"
                       CanUserAddRows="False"
                       Margin="0,10,0,0"
-                      Foreground="WhiteSmoke"
-                      Background="OrangeRed"
+                      Foreground="Black"
+                      Background="WhiteSmoke"
                       materialDesign:DataGridAssist.CellPadding="8"
                       materialDesign:DataGridAssist.ColumnHeaderPadding="10">
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="ID" Binding="{Binding Id}" Width="*"/>
-                    <DataGridTextColumn Header="Variety" Binding="{Binding Variety}" Width="*"/>
+                    <DataGridTextColumn Header="Variety" Binding="{Binding PizzaVarietyName}" Width="*"/>
                     <DataGridTextColumn Header="Size" Binding="{Binding Size}" Width="*"/>
                     <DataGridTextColumn Header="Price" Binding="{Binding Price}" Width="*"/>
                     <DataGridTextColumn Header="Description" Binding="{Binding Description}" Width="*"/>

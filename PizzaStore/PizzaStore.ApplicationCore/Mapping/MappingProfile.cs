@@ -31,8 +31,10 @@ namespace PizzaStore.Infrastructure.Mapping
 
             CreateMap<Pizza, PizzaDto>()
                 .ForMember(dest => dest.Size, opt => opt.MapFrom(src => src.Size.ToString()))
+                .ForMember(dest => dest.PizzaVarietyName, opt => opt.MapFrom(src => src.PizzaVariety.Name))
                 .ReverseMap()
-                .ForMember(dest => dest.Size, opt => opt.MapFrom(src => Enum.Parse<Size>(src.Size)));
+                .ForMember(dest => dest.Size, opt => opt.MapFrom(src => Enum.Parse<Size>(src.Size)))
+                .ForMember(dest => dest.PizzaVariety, opt => opt.Ignore()); // Because it's handled by FK
 
 
             CreateMap<PizzaVariety, PizzaVarietyDto>().ReverseMap();
