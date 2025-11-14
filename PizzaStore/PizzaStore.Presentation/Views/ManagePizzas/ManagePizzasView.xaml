@@ -8,7 +8,8 @@
              d:DesignHeight="600"
              d:DesignWidth="900">
 
-    <Grid Background="White" Margin="20">
+    <Grid Background="White"
+            Margin="20">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
@@ -21,25 +22,29 @@
         <TextBlock Text="Manage Pizzas"
                    FontSize="26"
                    FontWeight="Bold"
-                   Foreground="{DynamicResource PrimaryHueMidBrush}" />
+                   Foreground="{DynamicResource PrimaryHueMidBrush}"/>
 
         <!-- Pizza Form -->
-        <StackPanel Grid.Row="1" Margin="0,20,0,0" Orientation="Vertical" VerticalAlignment="Top">
-            <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
+        <StackPanel Grid.Row="1"
+                Margin="0,20,0,0"
+                Orientation="Vertical"
+                VerticalAlignment="Top">
+            <StackPanel Orientation="Horizontal"
+                    Margin="0,0,0,10">
                 <ComboBox Width="150"
-                        Margin="5"
-                        materialDesign:HintAssist.Hint="Select Variety"
-                        ItemsSource="{Binding PizzaVarieties}"
-                        SelectedItem="{Binding SelectedVariety, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-                        DisplayMemberPath="Name"
-                        SelectedValuePath="Id">
+                          Margin="5"
+                          materialDesign:HintAssist.Hint="Select Variety"
+                          ItemsSource="{Binding PizzaVarieties}"
+                          SelectedItem="{Binding SelectedVariety, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                          DisplayMemberPath="Name"
+                          SelectedValuePath="Id">
                 </ComboBox>
 
                 <ComboBox Width="150"
-                      Margin="5"
-                      materialDesign:HintAssist.Hint="Select Size"
-                      SelectedValue="{Binding SelectedSize, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-                      SelectedValuePath="Content">
+                          Margin="5"
+                          materialDesign:HintAssist.Hint="Select Size"
+                          SelectedValue="{Binding SelectedSize, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                          SelectedValuePath="Content">
                     <ComboBoxItem Content="Small"/>
                     <ComboBoxItem Content="Medium"/>
                     <ComboBoxItem Content="Large"/>
@@ -48,24 +53,23 @@
 
 
                 <TextBox Width="150"
-                        Margin="5"
-                        materialDesign:HintAssist.Hint="Price"
-                        Text="{Binding PizzaPrice, UpdateSourceTrigger=PropertyChanged}"/>
+                         Margin="5"
+                         materialDesign:HintAssist.Hint="Price"
+                         Text="{Binding PizzaPrice, UpdateSourceTrigger=PropertyChanged}"/>
 
                 <TextBox Width="350"
-                        Margin="5"
-                        materialDesign:HintAssist.Hint="Description"
-                        Text="{Binding PizzaDescription, UpdateSourceTrigger=PropertyChanged}"/>
+                         Margin="5"
+                         materialDesign:HintAssist.Hint="Description"
+                         Text="{Binding PizzaDescription, UpdateSourceTrigger=PropertyChanged}"/>
             </StackPanel>
 
-            <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
-                <TextBox Width="350"
-                        Margin="5"
-                        materialDesign:HintAssist.Hint="Image URL"
-                        Text="{Binding ImageUrl, UpdateSourceTrigger=PropertyChanged}"/>
-            </StackPanel>
+            <StackPanel Orientation="Horizontal"
+                    Margin="0,0,0,10">
+                <TextBox Width="300"
+                         Margin="5"
+                         materialDesign:HintAssist.Hint="Image URL"
+                         Text="{Binding ImageUrl, UpdateSourceTrigger=PropertyChanged}"/>
 
-            <StackPanel Orientation="Horizontal" Margin="0,0,0,20">
                 <Button Content="➕ Add Pizza"
                         Style="{StaticResource MaterialDesignRaisedButton}"
                         Command="{Binding AddPizzaCommand}"
@@ -92,10 +96,18 @@
                       materialDesign:DataGridAssist.CellPadding="8"
                       materialDesign:DataGridAssist.ColumnHeaderPadding="10">
                 <DataGrid.Columns>
-                    <DataGridTextColumn Header="Variety" Binding="{Binding PizzaVarietyName}" Width="*"/>
-                    <DataGridTextColumn Header="Size" Binding="{Binding Size}" Width="*"/>
-                    <DataGridTextColumn Header="Price" Binding="{Binding Price}" Width="*"/>
-                    <DataGridTextColumn Header="Description" Binding="{Binding Description}" Width="*"/>
+                    <DataGridTextColumn Header="Variety"
+                            Binding="{Binding PizzaVarietyName}"
+                            Width="*"/>
+                    <DataGridTextColumn Header="Size"
+                            Binding="{Binding Size}"
+                            Width="*"/>
+                    <DataGridTextColumn Header="Price"
+                            Binding="{Binding Price}"
+                            Width="*"/>
+                    <DataGridTextColumn Header="Description"
+                            Binding="{Binding Description}"
+                            Width="*"/>
                 </DataGrid.Columns>
             </DataGrid>
         </StackPanel>

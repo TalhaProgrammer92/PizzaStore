@@ -8,7 +8,8 @@
              d:DesignHeight="600"
              d:DesignWidth="900">
 
-    <Grid Background="White" Margin="20">
+    <Grid Background="White"
+            Margin="20">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
@@ -21,15 +22,19 @@
         <TextBlock Text="Manage Pizza Varieties"
                    FontSize="26"
                    FontWeight="Bold"
-                   Foreground="{DynamicResource PrimaryHueMidBrush}" />
+                   Foreground="{DynamicResource PrimaryHueMidBrush}"/>
 
         <!-- Pizza Form -->
-        <StackPanel Grid.Row="1" Margin="0,20,0,0" Orientation="Vertical" VerticalAlignment="Top">
-            <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
+        <StackPanel Grid.Row="1"
+                Margin="0,20,0,0"
+                Orientation="Vertical"
+                VerticalAlignment="Top">
+            <StackPanel Orientation="Horizontal"
+                    Margin="0,0,0,10">
                 <TextBox Width="150"
-                        Margin="5"
-                        Text="{Binding Name, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-                        materialDesign:HintAssist.Hint="Name"/>
+                         Margin="5"
+                         Text="{Binding Name, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                         materialDesign:HintAssist.Hint="Name"/>
 
                 <Button Content="➕ Add Variety"
                         Style="{StaticResource MaterialDesignRaisedButton}"
@@ -53,7 +58,9 @@
                       materialDesign:DataGridAssist.CellPadding="8"
                       materialDesign:DataGridAssist.ColumnHeaderPadding="10">
                 <DataGrid.Columns>
-                    <DataGridTextColumn Header="Variety" Binding="{Binding Name}" Width="*"/>
+                    <DataGridTextColumn Header="Variety"
+                            Binding="{Binding Name}"
+                            Width="*"/>
                 </DataGrid.Columns>
             </DataGrid>
         </StackPanel>

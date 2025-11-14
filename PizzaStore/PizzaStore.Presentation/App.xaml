@@ -8,17 +8,19 @@
             <ResourceDictionary.MergedDictionaries>
 
                 <!-- Material Design base styles -->
-                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesign3.Defaults.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesign3.Defaults.xaml"/>
 
                 <!-- Recommended color themes -->
-                <ResourceDictionary Source="pack://application:,,,/MaterialDesignColors;component/Themes/Recommended/Primary/MaterialDesignColor.DeepOrange.xaml" />
-                <ResourceDictionary Source="pack://application:,,,/MaterialDesignColors;component/Themes/Recommended/Secondary/MaterialDesignColor.Red.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignColors;component/Themes/Recommended/Primary/MaterialDesignColor.DeepOrange.xaml"/>
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignColors;component/Themes/Recommended/Secondary/MaterialDesignColor.Red.xaml"/>
 
             </ResourceDictionary.MergedDictionaries>
 
-            <!-- Global ComboBox (PopUp) Style -->
-            <SolidColorBrush x:Key="MaterialDesignPopupBoxBackground" Color="White"/>
-            <SolidColorBrush x:Key="MaterialDesignPopupBoxForeground" Color="Black"/>
+            <!-- Fix ComboBox Transparency -->
+            <Style TargetType="materialDesign:ComboBoxPopup">
+                <Setter Property="Background" Value="White"/>
+                <Setter Property="AllowsTransparency" Value="False"/>
+            </Style>
         </ResourceDictionary>
     </Application.Resources>
 </Application>

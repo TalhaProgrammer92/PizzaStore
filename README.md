@@ -137,13 +137,28 @@ It can be polished even further and I'll add more components like graphs, cards,
 ### 🍕 Manage Pizzas UI
 I created a UserControl for the ManagePizzas section so that admin can perform CRUD operations with Pizza entities with the database. Here's a look:
 
-![Manage Pizzas](/Screenshots/Manage%20Pizzas/Manage%20Pizzas%20-%20First%20look%20-%20UI.png)
+![Manage Pizzas](/Screenshots/Manage%20Pizzas/Manage%20Pizzas%20-%20Third%20look%20-%20UI.png)
 
 The UI is simple, just insert data about the pizza and perform CRUD using buttons below. There are two special feature buttons:
 
-1. **Filter Pizzas:** It's used to filter the list of pizzas depending on variety, size and price.
+1. **Add Pizza:** It's used to add a new pizza entity inside the database and then display that data in menu section of the customer.
 
-2. **Pizza Varieties Manager:** It's used to perform CRUD with pizza varieties so that these can be shown in the ComboBox items list of the PizzaVariety ComboBox.
+2. **Update Pizza:** It's used to update specific pizza attributes and that changes also reflect on menu section through database.
+
+3. **Delete Pizza:** It's used to delete/remove a pizza from database and also reflects on customer side's menu section.
+
+4. **Filter Pizzas:** It's used to filter the list of pizzas depending on variety, size and price.
+
+### ⚙ Manage Varieties
+I created a UserControl for the ManageVarieties section so that admin can perform CRUD operations with Pizza Variety entities with the database. Here's a look:
+
+![Manage Varieties](/Screenshots/Manage%20Varieties/Manage%20Pizza%20Varieties%20-%20UI.png)
+
+1. **Add Variety:** It's used to add a new pizza variety inside the database and then use it to create pizzas in the manage pizzas section.
+
+2. **Update Variety:** It's used to update specific pizza variety and that changes also reflect on pizzas of that variety through database.
+
+3. **Delete Variety:** It's used to delete/remove a pizza variety from database and also reflects on customer side's menu section.
 
 ---
 
